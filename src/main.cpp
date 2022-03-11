@@ -2,5 +2,8 @@
 #include "fun.h"
 
 int main() {
-    return 0;
+    const char* string = "This is my 1first Try to....";
+    faStr1(string);
+    faStr2(string);
+    faStr3(string);
 }
