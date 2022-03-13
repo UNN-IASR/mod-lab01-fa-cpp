@@ -26,31 +26,49 @@ unsigned int faStr1(const char *str) {
 }
 
 unsigned int faStr2(const char *str) {
+    bool isBad = false;
+    bool isInWord = false;
     int count = 0;
     int i = 0;
-    bool isInWord = false;
-    bool isGood = false;
-    bool isFirstLetter = true;
     while (str[i] != '\0') {
-        if (str[i] == ' ') {
-            if (isGood && isInWord) {
-                count++;
-            }
-            isGood = false;
+        if (isInWord == true && isBad == false && str[i] == ' ') {
             isInWord = false;
-            isFirstLetter = true;
-        } else {
+        }else if (isInWord == true && isBad == false
+            && isdigit(str[i])) {
+            isBad = true;
+            count--;
+        } else if (isInWord == true && isBad == false
+            && isalpha(str[i]) && isupper(str[i])) {
+            isBad = true;
+            count--;
+        } else if (isInWord == false && isBad == false
+            && !isalpha(str[i]) && !isdigit(str[i])) {
             isInWord = true;
-            if (isFirstLetter) {
-                if (isalpha(str[i])) {
-                    isGood = true;
-                }
-                isFirstLetter = false;
-            } else {
-                if (isdigit(str[i]) || isalpha(str[i])) {
-                    isGood = false;
-                }
-            }
+            isBad = true;
+        } else if (isInWord == false && isBad == false
+            && isalpha(str[i]) && islower(str[i])) {
+            isInWord = true;
+            isBad = true;
+        } else if (isInWord == false && isBad == false
+            && isalpha(str[i]) && isupper(str[i])) {
+            isInWord = true;
+            count++;
+        } else if (isInWord == false && isBad == false
+            && !isalpha(str[i]) && !isdigit(str[i])) {
+            isInWord = true;
+            isBad == true;
+        } else if (isInWord == true && isBad == false
+            && !isalpha(str[i]) & !isdigit(str[i])) {
+            isBad = true;
+            count--;
+        } else if (isInWord == false && isBad == false
+            && isdigit(str[i])) {
+            isInWord = true;
+            isBad = true;
+        } else if (isInWord == true && isBad == true
+            && str[i] == ' ') {
+            isInWord = false;
+            isBad = false;
         }
         i++;
     }
