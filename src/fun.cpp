@@ -10,13 +10,11 @@ unsigned int faStr1(const char *str) {
         if (str[i] == ' ') {
             if (!hadNumber && isInWord) {
                 count++;
-            }
-            else {
+            } else {
                 hadNumber = false;
             }
             isInWord = false;
-        }
-        else {
+        } else {
             isInWord == true;
             if (hadNumber == false && isdigit(str[i])) {
                 hadNumber = true;
@@ -41,16 +39,14 @@ unsigned int faStr2(const char *str) {
             isGood = false;
             isInWord = false;
             isFirstLetter = true;
-        }
-        else {
+        } else {
             isInWord = true;
             if (isFirstLetter) {
                 if (isalpha(str[i])) {
                     isGood = true;
                 }
                 isFirstLetter = false;
-            }
-            else {
+            } else {
                 if (isdigit(str[i]) || isalpha(str[i])) {
                     isGood = false;
                 }
@@ -70,8 +66,7 @@ unsigned int faStr3(const char *str) {
         if (str[i] != ' ' && !isInWord) {
             isInWord = true;
             wordsCount++;
-        }
-        else if (str[i] == ' ' && isInWord) {
+        } else if (str[i] == ' ' && isInWord) {
             isInWord = false;
         }
         if (str[i] != ' ') {
