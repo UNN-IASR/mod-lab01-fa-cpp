@@ -62,5 +62,23 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    
+    int wordsCount = 0;
+    int charsCount = 0;
+    bool isInWord = false;
+    int i = 0;
+    while (str[i]) {
+        if (str[i] != ' ' && !isInWord) {
+            isInWord = true;
+            wordsCount++;
+        }
+        else if (str[i] == ' ' && isInWord) {
+            isInWord = false;
+        }
+        if (str[i] != ' ') {
+            charsCount++;
+        }
+        i++;
+    }
+    int answ = round(charsCount / wordsCount);
+    return answ;
 }
