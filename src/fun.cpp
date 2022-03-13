@@ -16,7 +16,7 @@ unsigned int faStr1(const char *str) {
             isInWord = false;
         } else {
             isInWord == true;
-            if (hadNumber == false && isdigit(str[i])) {
+            if (!hadNumber && isdigit(str[i])) {
                 hadNumber = true;
             }
         }
