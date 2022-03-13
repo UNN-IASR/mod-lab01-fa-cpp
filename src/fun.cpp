@@ -15,7 +15,7 @@ unsigned int faStr1(const char *str) {
             }
             isInWord = false;
         } else {
-            isInWord == true;
+            isInWord = true;
             if (!hadNumber && isdigit(str[i])) {
                 hadNumber = true;
             }
@@ -33,7 +33,7 @@ unsigned int faStr2(const char *str) {
     while (str[i] != '\0') {
         if (isInWord == true && isBad == false && str[i] == ' ') {
             isInWord = false;
-        }else if (isInWord == true && isBad == false
+        } else if (isInWord == true && isBad == false
             && isdigit(str[i])) {
             isBad = true;
             count--;
