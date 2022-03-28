@@ -15,8 +15,7 @@ unsigned int faStr1(const char* str) {
         if (str[i] == ' ' && inWord == true && tmp == false) {
             inWord = false;
             wordCount++;
-        }
-        else if (str[i] == ' ' && inWord == true) {
+        } else if (str[i] == ' ' && inWord == true) {
             inWord = false;
             tmp = false;
         }
@@ -38,16 +37,14 @@ unsigned int faStr2(const char* str) {
 
         if (i == 0 && str[i] >= 'A' && str[i] <= 'Z') {
             tmpCapital = true;
-        }
-        else if (i > 0 && str[i - 1] == ' ' && str[i] >= 'A' && str[i] <= 'Z') {
+        } else if (i > 0 && str[i - 1] == ' ' && str[i] >= 'A' && str[i] <= 'Z') {
             tmpCapital = true;
         }
 
         if ((str[i] < 'a' || str[i]>'z') && str[i] != ' ') {
             if (i == 0 && tmpCapital == false) {
                 tmpRange = true;
-            }
-            else if (i > 0 && str[i - 1] != ' ') {
+            } else if (i > 0 && str[i - 1] != ' ') {
                 tmpRange = true;
             }
         }
@@ -61,7 +58,8 @@ unsigned int faStr2(const char* str) {
             tmpRange = false;
         }
 
-        if (str[i + 1] == 0 && inWord == true && tmpRange == false && tmpCapital == true) {
+        if (str[i + 1] == 0 && inWord == true 
+            && tmpRange == false && tmpCapital == true) {
             wordCount++;
         }
         i++;
@@ -76,12 +74,12 @@ unsigned int faStr3(const char* str) {
         if (str[i] != ' ' && inWord == false) {
             inWord = true;
         }
-        if (inWord == true) {
-            tmp++;
-        }
         if (str[i] == ' ' && inWord == true) {
             inWord = false;
             wordCount++;
+        }
+        if (inWord == true) {
+            tmp++;
         }
         if (str[i + 1] == 0 && inWord == true) {
             wordCount++;
