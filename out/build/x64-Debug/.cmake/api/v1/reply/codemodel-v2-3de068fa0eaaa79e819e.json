@@ -1,0 +1,110 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "test",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "mod-lab01-fa-cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "mod-lab01-fa-cpp::@145eef247bfb46b6828c",
+					"jsonFile" : "target-mod-lab01-fa-cpp-Debug-a3530ab25eb0ab832d02.json",
+					"name" : "mod-lab01-fa-cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "mod-lab01-fa-cpp.info::@145eef247bfb46b6828c",
+					"jsonFile" : "target-mod-lab01-fa-cpp.info-Debug-8a15571de3a93236b21e.json",
+					"name" : "mod-lab01-fa-cpp.info",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "mod-lab01-fa-cpp.test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-mod-lab01-fa-cpp.test-Debug-c9105b82762d6350453e.json",
+					"name" : "mod-lab01-fa-cpp.test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/asv/source/repos/asv23/mod-lab01-fa-cpp/out/build/x64-Debug",
+		"source" : "C:/Users/asv/source/repos/asv23/mod-lab01-fa-cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
