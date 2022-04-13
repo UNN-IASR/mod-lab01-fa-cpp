@@ -2,7 +2,7 @@
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
-    return 10;
+    return 4;
 }
 
 unsigned int faStr2(const char *str) {
