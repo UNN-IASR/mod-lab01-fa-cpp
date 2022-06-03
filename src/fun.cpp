@@ -1,4 +1,6 @@
 #include "fun.h"
+#include <cctype>
+#include <cmath>
 
 unsigned int faStr1(const char *str) {
     int сountWord = 0;
