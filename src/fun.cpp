@@ -2,7 +2,7 @@
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
-    return 0;
+    //return 0;
     int countWord = 0;
     int i = 0;
     bool inWord = false;
@@ -34,7 +34,7 @@ unsigned int faStr1(const char *str) {
 }
 
 unsigned int faStr2(const char *str) {
-    return 0;
+    //return 0;
     int countWord = 0;
     int i = 0;
     bool inWord = false;
@@ -75,7 +75,7 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    return 0;
+    //return 0;
     int countWord = 0;
     int countSign = 0;
     int i = 0;
