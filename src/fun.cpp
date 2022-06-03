@@ -10,22 +10,23 @@ unsigned int faStr1(const char *str) {
     while (str[i]) {
         if (!isspace(str[i])) {
             inWord = true;
-            if (isdigit(str[i]))
+            if (isdigit(str[i])) {
                 isDigits = true;
-        }
-        else {
+            }
+        } else {
             if (inWord) {
-                if (!isDigits)
+                if (!isDigits) {
                     сountWord++;
-                else isDigits = false;
+                } else isDigits = false;
                 inWord = false;
             }
         }
         i++;
     }
     if (inWord) {
-        if (!isDigits) 
+        if (!isDigits) {
             сountWord++;
+        }
     }
     return сountWord;
 }
@@ -39,21 +40,23 @@ unsigned int faStr2(const char *str) {
     while (str[i]) {
         if (!isspace(str[i])) {
             if (!inWord) {
-                if (isalpha(str[i]) && isupper(str[i])) 
+                if (isalpha(str[i]) && isupper(str[i])) { 
                     isGood = true;
+                }
                 inWord = true;
-            }
-            else {
+            } else {
                 if (isGood) {
-                    if (!isalpha(str[i])) 
+                    if (!isalpha(str[i])) {
                         isGood = false;
+                    }
                 }
             }
         }
         else {
             if (inWord) {
-                if (isGood) 
+                if (isGood) {
                     сountWord++;
+                }
                 inWord = false;
                 isGood = false;
             }
@@ -62,8 +65,9 @@ unsigned int faStr2(const char *str) {
     }
 
     if (inWord) {
-        if (isGood) 
+        if (isGood) {
             сountWord++;
+        }
     }
 
     return сountWord;
@@ -82,10 +86,10 @@ unsigned int faStr3(const char *str) {
                 inWord = true;
                 сountWord++;
             }
-        }
-        else {
-            if (inWord) 
+        } else {
+            if (inWord) {
                 inWord = false;
+            }
         }
         i++;
     }
