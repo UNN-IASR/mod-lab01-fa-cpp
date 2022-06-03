@@ -1,5 +1,7 @@
 #include "fun.h"
 #include <cctype>
+#include <vector>
+#include <cstring>
 #include <cmath>
 
 unsigned int faStr1(const char *str) {
@@ -29,9 +31,6 @@ unsigned int faStr2(const char *str) {
     int i = 0;
     bool inWord = false;
     bool isGood = false;
-    //bool isBLat = false;
-    //bool isFirst = false;
-    //bool isSLat = false;
     while (str[i]) {
         if (!isspace(str[i])) {
             if (!inWord) {
