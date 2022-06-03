@@ -7,7 +7,7 @@ int main() {
     using std::cout;
     setlocale(LC_ALL, "Russian");
     const char* str = "Contained to property unfeeling marked overcame wicket33 strangers parish Oh";
-    cout << "Результат выполнения задачи 1: " << faStr1(str) << endl;
-    cout << "Результат выполнению задачи 2: " << faStr2(str) << endl;
-    cout << "Результат выполнения задачи 3: " << faStr3(str) << endl;
+    cout << "Результат выполнения задачи 1: " << faStr1(str);
+    cout << "Результат выполнению задачи 2: " << faStr2(str);
+    cout << "Результат выполнения задачи 3: " << faStr3(str);
 }
