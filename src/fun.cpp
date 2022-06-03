@@ -17,7 +17,9 @@ unsigned int faStr1(const char *str) {
             if (inWord) {
                 if (!isDigits) {
                     сountWord++;
-                } else isDigits = false;
+                } else {
+                    isDigits = false;
+                }
                 inWord = false;
             }
         }
@@ -40,7 +42,7 @@ unsigned int faStr2(const char *str) {
     while (str[i]) {
         if (!isspace(str[i])) {
             if (!inWord) {
-                if (isalpha(str[i]) && isupper(str[i])) { 
+                if (isalpha(str[i]) && isupper(str[i])) {
                     isGood = true;
                 }
                 inWord = true;
@@ -51,8 +53,7 @@ unsigned int faStr2(const char *str) {
                     }
                 }
             }
-        }
-        else {
+        } else {
             if (inWord) {
                 if (isGood) {
                     сountWord++;
