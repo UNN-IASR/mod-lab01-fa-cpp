@@ -1,7 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 #include <math.h>
-#include <cctupe>
+#include <ctype.h>
 
 unsigned int faStr1(const char *str) {
     unsigned int answer = 0;
