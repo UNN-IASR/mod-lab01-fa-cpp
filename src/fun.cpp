@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 #include <math.h>
+#include <cctupe>
 
 unsigned int faStr1(const char *str) {
     unsigned int answer = 0;
@@ -17,7 +18,7 @@ unsigned int faStr1(const char *str) {
         else if(isInWord && str[i] != ' ')
             if(isdigit(str[i]))
                 containsNumbers = true;
-        if(isInWord && (str[i] == ' ' || str[i+1] == '\0'))
+        if(isInWord && (str[i] == ' ' || str[i + 1] == '\0'))
         {
             if(!containsNumbers)
                 answer++;
@@ -45,7 +46,7 @@ unsigned int faStr2(const char *str) {
         else if(isInWord && str[i] != ' ')
             if(!islower(str[i]))
                 isAcceptable = false;
-        if(isInWord && (str[i] == ' ' || str[i+1] == '\0'))
+        if(isInWord && (str[i] == ' ' || str[i + 1] == '\0'))
         {
             if(isAcceptable)
                 answer++;
@@ -73,7 +74,7 @@ unsigned int faStr3(const char *str) {
         }
         else if(isInWord && str[i] != ' ')
             sumLength++;
-        if(isInWord && (str[i] == ' ' || str[i+1] == '\0'))
+        if(isInWord && (str[i] == ' ' || str[i + 1] == '\0'))
             isInWord = false;
 
         i++;
