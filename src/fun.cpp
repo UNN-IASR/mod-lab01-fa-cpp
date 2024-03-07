@@ -8,7 +8,6 @@ unsigned int faStr1(const char *str) {
     bool inWord = false;
     bool containsNumbers = false;
     int i = 0;
-    
     while (str[i] != '\0') {
         if (!inWord && str[i] != ' ') {
             inWord = true;
@@ -25,7 +24,6 @@ unsigned int faStr1(const char *str) {
         }
         i++;
     }
-    
     return count;
 }
 
@@ -34,9 +32,8 @@ unsigned int faStr2(const char *str) {
     bool inWord = false;
     bool onlyFirstCapital = false;
     int i = 0;
-    
     while (str[i] != '\0') {
-        if (inWord && str[i] != ' ' && isupper(str[i])) {
+        if (inWord && str[i] != ' ' && !islower(str[i])) {
             onlyFirstCapital = false;
         }
         if (!inWord && str[i] != ' ') {
@@ -52,7 +49,6 @@ unsigned int faStr2(const char *str) {
         }
         i++;
     }
-    
     return count;
 }
 
@@ -61,7 +57,6 @@ unsigned int faStr3(const char *str) {
     int sumLength = 0;
     bool inWord = false;
     int i = 0;
-    
     while (str[i] != '\0') {
         if (inWord && str[i] != ' ') {
             sumLength++;
@@ -76,6 +71,5 @@ unsigned int faStr3(const char *str) {
         }
         i++;
     }
-    
     return static_cast<int>(round(static_cast<double>(sumLength) / count));
 }
