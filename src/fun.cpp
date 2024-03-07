@@ -12,9 +12,10 @@ unsigned int faStr1(const char *str) {
         if (!isInWord && str[i] != ' ') {
             isInWord = true;
             containsNumbers = isdigit(str[i]);
-        } else if (isInWord && str[i] != ' ')
+        } else if (isInWord && str[i] != ' ') {
             if (isdigit(str[i]))
                 containsNumbers = true;
+        }
         if (isInWord && (str[i] == ' ' || str[i+1] == '\0')) {
             if (!containsNumbers)
                 answer++;
@@ -36,9 +37,10 @@ unsigned int faStr2(const char *str) {
         if (!isInWord && str[i] != ' ') {
             isInWord = true;
             isAcceptable = isupper(str[i]);
-        } else if (isInWord && str[i] != ' ')
+        } else if (isInWord && str[i] != ' ') {
             if (!islower(str[i]))
                 isAcceptable = false;
+        }
         if (isInWord && (str[i] == ' ' || str[i+1] == '\0')) {
             if (isAcceptable)
                 answer++;
@@ -61,8 +63,9 @@ unsigned int faStr3(const char *str) {
             isInWord = true;
             wordsCount++;
             sumLength++;
-        } else if (isInWord && str[i] != ' ')
+        } else if (isInWord && str[i] != ' ') {
             sumLength++;
+        }
         if (isInWord && (str[i] == ' ' || str[i+1] == '\0'))
             isInWord = false;
 
