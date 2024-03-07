@@ -71,5 +71,5 @@ unsigned int faStr3(const char *str) {
 
         i++;
     }
-    return (int)round((double)sumLength / (double)wordsCount);
+    return static_cast<int>(round((double)sumLength / (double)wordsCount));
 }
