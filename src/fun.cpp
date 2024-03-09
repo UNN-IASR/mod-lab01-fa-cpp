@@ -23,6 +23,7 @@ unsigned int faStr1(const char *str) {
 		}
 		i++;
 	}
+	if (wordInvalidated && inWord) count--;
     return count;
 }
 
@@ -48,6 +49,7 @@ unsigned int faStr2(const char *str) {
 		}
 		i++;
 	}
+	if (wordInvalidated && inWord) count--;
     return count;
 }
 
