@@ -16,13 +16,12 @@ unsigned int faStr1(const char *str) {
     while (str[i] != '\0') {
         if (str[i] != ' ' && inWord == false) {
             inWord = true;
-            if(myFind(num, str[i]))
+            if (myFind(num, str[i]))
                 haveNum = true;
             else
                 count += 1;
-        }
-        else {
-            if (myFind(num, str[i]) && haveNum==false) {
+        } else {
+            if (myFind(num, str[i]) && haveNum == false) {
                 haveNum = true;
                 count--;
             }
@@ -36,22 +35,20 @@ unsigned int faStr1(const char *str) {
     return count;
 }
 
-unsigned int faStr2(const char *str) {
-        
+unsigned int faStr2(const char *str) {    
     bool inWord = false;
     bool capitalLetter = false;
     int count = 0;
     int i = 0;
     bool haveNum = false;
-    while (str[i] != '\0')
-    {
-        if (str[i] >= 65 && str[i] <= 90 && inWord == false) { //в ascii-code заглавные буквы
+    while (str[i] != '\0'){
+        if (str[i] >= 65 && str[i] <= 90 && inWord == false) {
             inWord = true;
             capitalLetter = true;
             count += 1;
-        }
-        else {
-            if ((str[i] < 97 || str[i] > 122) && str[i]!=' ' && haveNum == false && capitalLetter==true) {
+        } else {
+            if ((str[i] < 97 || str[i] > 122) && str[i]!= ' '
+                 && haveNum == false && capitalLetter == true) {
                 haveNum = true;
                 count--;
             }
@@ -77,8 +74,7 @@ unsigned int faStr3(const char *str) {
             inWord = true;
             count += 1;
             start = i;
-        }
-        else {                
+        } else {                
             if (str[i] == ' ' && inWord == true) {
                 inWord = false;
                 sum+=i-start;
