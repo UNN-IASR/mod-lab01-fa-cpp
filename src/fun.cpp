@@ -66,6 +66,7 @@ unsigned int faStr3(const char* str)
     int count = 0;
     int space = 0;
     int i = 0;
+    int res = 0;
     while (str[i] != '\0')
     {
         if (str[i] != ' ' && inWord == false)
@@ -82,8 +83,10 @@ unsigned int faStr3(const char* str)
             space++;
         i++;
     }
-    if (str[i - 1] != ' ')
+    if (i != 0 && str[i - 1] != ' ')
         count++;
-    int res = round((i - space) / count);
+    
+    if (count != 0)
+        res = round((i - space) / count);
     return res;
 }
