@@ -68,7 +68,7 @@ unsigned int faStr3(const char *str) {
         if (inWord) {
             if (str[i] == ' ' || str[i] == '\n') {
                 inWord = false;
-            } else { 
+            } else {
                 sum++;
             }
         } else {
