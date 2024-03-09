@@ -8,7 +8,7 @@ unsigned int faStr1(const char *str) {
     int count = 0;
     int obshag = 0;
     while (str[i]) {
-        if (!flag && str[i] != ' ' ) {
+        if (!flag && str[i] != ' ') {
             flag    = true;
             count   = 1;
         } else if (flag && str[i] == ' ') {
@@ -55,7 +55,6 @@ unsigned int faStr3(const char *str) {
             count++;
         } else if (flag && str[i] == ' ') {
             flag = false;
-
         }
         if (flag && str[i] != ' ') {
             sum++;
@@ -66,8 +65,8 @@ unsigned int faStr3(const char *str) {
     res = sum / count;
     fractpart = modf(res, &intpart);
     if (fractpart >= 0.5) {
-        return (int)res + 1;
+        return static_cast<int>(res) + 1;
     } else {
-        return (int)res;
+        return static_cast<int>(res);
     }
 }
