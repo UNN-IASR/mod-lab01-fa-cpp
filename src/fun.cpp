@@ -18,7 +18,7 @@ unsigned int faStr1(const char* str) {
             space = true;
             correct = true;
         }
-        else if (static_cast<int>(str)[i] >= 48 && static_cast<int>(str)[i] <= 57) {
+        else if (str[i] >= '0' && static_cast<int>(str)[i] <= '9') {
             correct = false;
             space = false;
         }
@@ -48,11 +48,11 @@ unsigned int faStr2(const char* str) {
             }
             space = true;
         }
-        else if ((int)str[i] >= 65 && (int)str[i] <= 90 && space == true) {
+        else if (str[i] >= 'A' && str[i] <= 'Z' && space == true) {
             correct1 = true;
             space = false;
         }
-        else if ((int)str[i] >= 97 && (int)str[i] <= 122 && space == false) {
+        else if (str[i] >= 'a' && str[i] <= 'z' && space == false) {
             correct2 = true;
             space = false;
             if (i == strlen(str) - 1 && correct1 == true && correct2 == false) {
@@ -62,7 +62,7 @@ unsigned int faStr2(const char* str) {
                 correct3 = false;
             }
         }
-        else if (!((int)str[i] >= 97 && (int)str[i] <= 122) && space == false) {
+        else if (!(str[i] >= 'a' && str[i] <= 'z') && space == false) {
             correct3 = true;
             space = false;
             if (i == strlen(str) - 1 && correct1 == true && correct2 == false) {
