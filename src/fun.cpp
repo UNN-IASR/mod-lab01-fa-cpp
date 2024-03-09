@@ -33,7 +33,7 @@ unsigned int faStr2(const char *str) {
         } else {
             if (*str > 64 && *str < 91 && inWord
                 || *str > 96 && *str < 123 && !inWord
-                || !(*str > 96 && *str < 123))
+                || !(*str > 96 && *str < 123 || *str > 64 && *str < 91))
                 isCorrect = false;
             inWord = true;
         }
