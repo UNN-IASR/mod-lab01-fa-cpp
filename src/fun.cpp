@@ -1,7 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 bool myFind(char* mas, char elem) {
-    for (int i = 0; i < sizeof(mas); i++) {
+     for (int i = 0; i < sizeof(mas); i++) {
         if (elem == mas[i])
             return true;
     }
