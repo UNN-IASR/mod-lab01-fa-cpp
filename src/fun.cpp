@@ -11,12 +11,10 @@ unsigned int faStr1(const char *str) {
             inWord = true;
             contNum = isdigit(str[i]);
             counter += !contNum;
-        }
-        else if (str[i] == ' ' && inWord) {
+        } else if (str[i] == ' ' && inWord) {
             inWord = false;
             contNum = false;
-        }
-        else if (isdigit(str[i]) && inWord && !contNum) {
+        } else if (isdigit(str[i]) && inWord && !contNum) {
             contNum = true;
             counter--;
         }
@@ -35,12 +33,10 @@ unsigned int faStr2(const char *str) {
             inWord = true;
             corrWord = isupper(str[i]);
             counter += corrWord;
-        }
-        else if (str[i] == ' ' && inWord) {
+        } else if (str[i] == ' ' && inWord) {
             inWord = false;
             corrWord = false;
-        }
-        else if (!islower(str[i]) && inWord && corrWord) {
+        } else if (!islower(str[i]) && inWord && corrWord) {
             corrWord = false;
             counter--;
         }
@@ -59,12 +55,10 @@ unsigned int faStr3(const char *str) {
             counter += !inWord;
             len++;
             inWord = true;
-        }
-        else if (str[i] == ' ' && inWord) {
+        } else if (str[i] == ' ' && inWord) {
             inWord = false;
         }
         i++;
     }
-    std::cout << "---" << len << "  " << counter << "  " << (float)len/counter << std::endl;
-    return round((float)len/counter);
+    return round(static_cast<float>(len)/counter);
 }
