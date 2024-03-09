@@ -1,6 +1,5 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <string>
 #include <iostream>
 
 int main() {
