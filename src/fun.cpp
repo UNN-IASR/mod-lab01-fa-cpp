@@ -1,14 +1,12 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <iostream>
-#include <vector>
 #include <math.h>
 #include <stdio.h>
+#include <iostream>
+#include <vector>
 #include <cstring>
-using namespace std;
 
-unsigned int faStr1(const char* str)
-{
+unsigned int faStr1(const char* str){
     bool space = true;
     bool correct = true;
     int counter = 0;
@@ -83,7 +81,7 @@ unsigned int faStr2(const char* str) {
 unsigned int faStr3(const char* str) {
     int lenght = 0;
     int average_lenght = 0;
-    vector<int> numbers;
+    std::vector<int> numbers;
     for (int i = 0; i < strlen(str); i++) {
         if (str[i] == ' ') {
             if (lenght != 0) {
