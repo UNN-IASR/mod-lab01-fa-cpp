@@ -17,11 +17,11 @@ unsigned int faStr1(const char* str) {
             }
             space = true;
             correct = true;
-        }
+            }
         else if (str[i] >= '0' && str[i] <= '9') {
             correct = false;
             space = false;
-        }
+            }
         else if (str[i] != ' ') {
             if (i == strlen(str) - 1 && correct == true) {
                     counter++;
