@@ -25,8 +25,8 @@ unsigned int faStr1(const char *str) {
         i++;
     }
     if (wordInvalidated && inWord) {
-	    count--;
-	}
+        count--;
+    }
     return count;
 }
 
@@ -54,8 +54,8 @@ unsigned int faStr2(const char *str) {
         i++;
     }
     if (wordInvalidated && inWord) {
-		count--;
-	}
+        count--;
+    }
     return count;
 }
 
@@ -68,9 +68,10 @@ unsigned int faStr3(const char *str) {
         if (inWord) {
             if (str[i] == ' ' || str[i] == '\n') {
                 inWord = false;
-            } else sum++;
-        }
-        else {
+            } else { 
+                sum++;
+            }
+        } else {
             if (str[i] != ' ' && str[i] != '\n') {
                 count++;
                 sum++;
