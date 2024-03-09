@@ -6,7 +6,7 @@ unsigned int faStr1(const char *str) {
     int numWordsWithoutNum = 0;
     bool inWord = false, containsNum = false;
 
-    while (str != '\0') {
+    while (*str != '\0') {
         if (*str == ' ') {
             if (inWord && !containsNum) numWordsWithoutNum++;
             inWord = containsNum = false;
