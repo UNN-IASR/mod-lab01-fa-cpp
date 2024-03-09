@@ -18,7 +18,7 @@ unsigned int faStr1(const char* str) {
             space = true;
             correct = true;
         }
-        else if ((int)str[i] >= 48 && (int)str[i] <= 57) {
+        else if (static_cast<int>(str)[i] >= 48 && static_cast<int>(str)[i] <= 57) {
             correct = false;
             space = false;
         }
@@ -94,7 +94,6 @@ unsigned int faStr3(const char* str) {
             }
         }
     }
-    
     for (int i = 0; i < numbers.size(); i++) {
         average_lenght += numbers[i];
     }
