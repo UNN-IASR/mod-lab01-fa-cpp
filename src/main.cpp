@@ -1,9 +1,9 @@
 // Copyright 2022 UNN-IASR
-#include "fun.h"
 #include <iostream>
+#include "fun.h"
 
-int main()
-{
+
+int main() {
     char str1[] = "I have no n4mbers in 4 w0rds";
     char str2[] = "I Have 2 words sTarTing with BIG Le11ers";
     char str3[] = "Middle length of these words is four";
