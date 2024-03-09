@@ -1,7 +1,8 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 
-unsigned int faStr1(const char *str) {
+unsigned int faStr1(const char* str)
+{
     bool inWord = false;
     bool cifra = false;
     int count = 0;
@@ -30,9 +31,12 @@ unsigned int faStr1(const char *str) {
     }
     
     return count;
+    
+
 }
 
-unsigned int faStr2(const char *str) {
+unsigned int faStr2(const char* str)
+{
     bool first = true;//первая буква
     bool correct = false;
     bool second = false;
@@ -70,8 +74,8 @@ unsigned int faStr2(const char *str) {
     }
     return count;
 }
-
-unsigned int faStr3(const char *str) {
+unsigned int faStr3(const char* str)
+{
     bool inWord = false;
     int count = 0;
     int len = 0;
