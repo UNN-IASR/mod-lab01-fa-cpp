@@ -16,7 +16,8 @@ unsigned int faStr1(const char *str) {
 			}
 		}
 		else {
-			if (str[i] != ' ' && str[i] != '\n' && (str[i] < '0' || str[i] > '9')) {
+			if (str[i] != ' ' && str[i] != '\n') {
+				wordInvalidated = !(str[i] < '0' || str[i] > '9');
 				count++;
 				inWord = true;
 			}
@@ -34,15 +35,17 @@ unsigned int faStr2(const char *str) {
 	unsigned int count = 0;
 	while (str[i] != '\0') {
 		if (inWord) {
-			if (str[i] < 'a' || str[i] > 'z') wordInvalidated = true;
 			if (str[i] == ' ' || str[i] == '\n') {
 				if (wordInvalidated) count--;
 				inWord = false;
 				wordInvalidated = false;
 			}
+			else if (str[i] < 'a' || str[i] > 'z') wordInvalidated = true;
+
 		}
 		else {
-			if (str[i] >= 'A' && str[i] <= 'Z') {
+			if (str[i] != ' ' && str[i] != '\n') {
+				wordInvalidated = str[i] < 'A' || str[i] > 'Z';
 				count++;
 				inWord = true;
 			}
