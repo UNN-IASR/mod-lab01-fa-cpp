@@ -81,5 +81,5 @@ unsigned int faStr3(const char *str) {
     }
     if (count == 0) return 0;
     float ratio = sum / count;
-    return std::floor(ratio + 0.5f));
+    return std::floor(ratio + 0.5f);
 }
