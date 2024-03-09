@@ -1,6 +1,5 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <corecrt_math.h>
 
 unsigned int faStr1(const char* str) {
     bool inWord = false;
@@ -73,5 +72,5 @@ unsigned int faStr3(const char* str) {
         i++;
     }
 
-    return round(sum / count);
+    return (int)(sum / count + 0.5);
 }
