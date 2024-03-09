@@ -14,7 +14,7 @@ unsigned int faStr1(const char* str) {
             || (str[i] >= 'a' && str[i] <= 'z'))
             && inWord == true && str[i] != ' ')
                 outNums = true;
-        else if (str[i] == ' ' && inWord == true) {
+        if (str[i] == ' ' && inWord == true) {
             if (outNums == false)
                 count++;
             else
@@ -31,13 +31,13 @@ unsigned int faStr2(const char* str) {
     int count = 0;
     int i = 0;
     while (str[i] != '\0') {
-        if (str[i] != ' ' && inWord == false 
+        if (str[i] != ' ' && inWord == false
             && (str[i] >= 'A' && str[i] <= 'Z'))
             inWord = true;
-        else if (!(str[i] >= 'a' && str[i] <= 'z') 
+        else if (!(str[i] >= 'a' && str[i] <= 'z')
             && inWord == true && str[i] != ' ')
             outNums = true;
-        else if (str[i] == ' ' && inWord == true) {
+        if (str[i] == ' ' && inWord == true) {
             if (outNums == false)
                 count++;
             else
@@ -57,7 +57,7 @@ unsigned int faStr3(const char* str) {
     while (str[i] != '\0') {
         if (str[i] != ' ' && inWord == false)
             inWord = true;
-        else if (str[i] == ' ' && inWord == true) {
+        if (str[i] == ' ' && inWord == true) {
             inWord = false;
             count++;
         }
