@@ -6,12 +6,11 @@
 #include <vector>
 #include <cstring>
 
-unsigned int faStr1(const char* str){
+unsigned int faStr1(const char* str) {
     bool space = true;
     bool correct = true;
     int counter = 0;
     for (int i = 0; i < strlen(str); i++) {
-        // Если пробел
         if (i != 0 && str[i] == ' ' && space == false) {
             if (correct == true) {
                 counter++;
@@ -19,7 +18,6 @@ unsigned int faStr1(const char* str){
             space = true;
             correct = true;
         }
-        // Если цифра
         else if ((int)str[i] >= 48 && (int)str[i] <= 57) {
             correct = false;
             space = false;
