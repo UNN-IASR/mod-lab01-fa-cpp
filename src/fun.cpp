@@ -17,12 +17,10 @@ unsigned int faStr1(const char* str) {
             }
             space = true;
             correct = true;
-            }
-        else if (str[i] >= '0' && str[i] <= '9') {
+        } else if (str[i] >= '0' && str[i] <= '9') {
             correct = false;
             space = false;
-            }
-        else if (str[i] != ' ') {
+        } else if (str[i] != ' ') {
             if (i == strlen(str) - 1 && correct == true) {
                     counter++;
                 }
@@ -47,12 +45,10 @@ unsigned int faStr2(const char* str) {
                 correct3 = false;
             }
             space = true;
-        }
-        else if (str[i] >= 'A' && str[i] <= 'Z' && space == true) {
+        } else if (str[i] >= 'A' && str[i] <= 'Z' && space == true) {
             correct1 = true;
             space = false;
-        }
-        else if (str[i] >= 'a' && str[i] <= 'z' && space == false) {
+        } else if (str[i] >= 'a' && str[i] <= 'z' && space == false) {
             correct2 = true;
             space = false;
             if (i == strlen(str) - 1 && correct1 == true && correct2 == false) {
@@ -61,8 +57,7 @@ unsigned int faStr2(const char* str) {
                 correct2 = false;
                 correct3 = false;
             }
-        }
-        else if (!(str[i] >= 'a' && str[i] <= 'z') && space == false) {
+        } else if (!(str[i] >= 'a' && str[i] <= 'z') && space == false) {
             correct3 = true;
             space = false;
             if (i == strlen(str) - 1 && correct1 == true && correct2 == false) {
@@ -86,8 +81,7 @@ unsigned int faStr3(const char* str) {
                 numbers.push_back(lenght);
             }
             lenght = 0;
-        }
-        else if (str[i] != ' ') {
+        } else if (str[i] != ' ') {
             lenght++;
             if (i == strlen(str) - 1) {
                 numbers.push_back(lenght);
