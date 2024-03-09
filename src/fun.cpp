@@ -12,11 +12,10 @@ unsigned int faStr1(const char* str) {
             inWord = true;
             hasNumber = (str[i] <= '9') && (str[i] >= '0');
             if (!hasNumber) count++;
-        }
-        else if ((str[i] == ' ') && (inWord == true)) {
+        } else if ((str[i] == ' ') && (inWord == true)) {
             inWord = false;
-        }
-        else if ((!hasNumber) && (inWord == true) && (str[i] <= '9') && (str[i] >= '0')) {
+        } else if ((!hasNumber) && (inWord == true) &&
+            (str[i] <= '9') && (str[i] >= '0')) {
             count--;
             hasNumber = true;
         }
@@ -39,12 +38,11 @@ unsigned int faStr2(const char* str) {
                 count++;
                 allAreSmall = true;
             }
-        }
-        else if ((str[i] == ' ') && (inWord == true)) {
+        } else if ((str[i] == ' ') && (inWord == true)) {
             inWord = false;
             allAreSmall = false;
-        }
-        else if ((allAreSmall) && (inWord == true) && ((str[i] < 'a') || (str[i] > 'z'))) {
+        } else if ((allAreSmall) && (inWord == true) &&
+            ((str[i] < 'a') || (str[i] > 'z'))) {
             count--;
             allAreSmall = false;
         }
@@ -64,13 +62,12 @@ unsigned int faStr3(const char* str) {
         if ((str[i] != ' ') && (inWord == false)) {
             inWord = true;
             count++;
-        }
-        else if ((str[i] == ' ') && (inWord == true)) {
+        } else if ((str[i] == ' ') && (inWord == true)) {
             inWord = false;
         }
         if (str[i] != ' ') sum++;
         i++;
     }
 
-    return (int)(sum / count + 0.5);
+    return static_cast<int>(sum / count + 0.5);
 }
