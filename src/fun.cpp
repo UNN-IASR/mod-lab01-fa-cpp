@@ -51,7 +51,7 @@ unsigned int faStr2(const char *str) {
             count += 1;
         }
         else {
-            if (str[i] < 97 || str[i] > 122 && str[i]!=' ' && haveNum == false && capitalLetter==true) {
+            if ((str[i] < 97 || str[i] > 122) && str[i]!=' ' && haveNum == false && capitalLetter==true) {
                 haveNum = true;
                 count--;
             }
