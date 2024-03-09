@@ -18,7 +18,7 @@ unsigned int faStr1(const char* str) {
             space = true;
             correct = true;
         }
-        else if (str[i] >= '0' && static_cast<int>(str)[i] <= '9') {
+        else if (str[i] >= '0' && str[i] <= '9') {
             correct = false;
             space = false;
         }
