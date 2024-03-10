@@ -36,9 +36,11 @@ unsigned int faStr2(const char* str) {
                 else
                     badWord = true;
             }
-        } else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ' && inWord == true && badWord == false) {
-            badWord = true;
-            count--;
+        } else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ') {
+            if (inWord == true && badWord == false) {
+                badWord = true;
+                count--;
+            }
         } else if (str[i] == ' ' && inWord == true) {  //окончание слова
             badWord = false;
             inWord = false;
@@ -70,6 +72,7 @@ unsigned int faStr3(const char* str) {
     sum += lenghtNow; //т.к. \0 цикл не учитывает
     if ((sum%count) >= 0.5) {
         return (sum / count) + 1;
-    } else 
+    } else {
         return sum / count;
+    }
 }
