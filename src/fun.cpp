@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 #include<math.h>
+#include<ctupe.h>
 
 unsigned int faStr1(const char *str) {
 int Number = 0;
