@@ -22,7 +22,7 @@ unsigned int faStr1(const char *str) {
 }
 
 unsigned int faStr2(const char *str) {
-    std::regex words("\\b[A-Z][a-z]*\\b"); 
+    std::regex words("\\b[A-Z][a-z,]*\\b"); 
     std::string inputStr(str);
     std::sregex_iterator it(inputStr.begin(), inputStr.end(), words);
     std::sregex_iterator itEnd;
