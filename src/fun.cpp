@@ -1,9 +1,10 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <cctype>
 #include <math.h>
+#include <cctype>
 
-unsigned int faStr1(const char* str) {
+unsigned int faStr1(const char* str) 
+{
     bool inWord = false;
     bool isNumber = false; //определяет наличие цифр в слове
     int count = 0;
@@ -25,7 +26,8 @@ unsigned int faStr1(const char* str) {
     }
     return count;
 }
-unsigned int faStr2(const char* str) {
+unsigned int faStr2(const char* str)
+{
     bool inWord = false;
     bool badWord = false; //бракует слово
     int count = 0;
@@ -34,10 +36,8 @@ unsigned int faStr2(const char* str) {
     {
         if (str[i] != ' ' && inWord == false) {  //чтение слова на начале слова
             inWord = true; {
-                if (isupper(str[i]))
-                    count++;
-                else
-                    badWord = true;
+                if (isupper(str[i])) count++;
+                else badWord = true;
             }
         }
         else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ' && inWord == true && badWord == false) {  //нашли не строчную букву в слове
@@ -52,7 +52,8 @@ unsigned int faStr2(const char* str) {
     }
     return count;
 }
-unsigned int faStr3(const char* str) {
+unsigned int faStr3(const char* str)
+{
     bool inWord = false;
     int count = 0;
     int sum = 0; //сумма длин всех слов
