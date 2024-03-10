@@ -2,7 +2,7 @@
 #include <math.h>
 #include "fun.h"
 
-unsigned int faStr1(const char *  str) {
+unsigned int faStr1(const char  *   str) {
   int i = 0;
   bool invWord = false; // булевая переменная, определяющая, допустимое ли слово или нет
   bool word = false; // булевая переменная, определяющая, находимся ли мы в слове в данный момент
@@ -18,7 +18,7 @@ unsigned int faStr1(const char *  str) {
       word = true;
       WnD++;
     } else if (isdigit(value) && word == true && !invWord) {
-      inwWord = true;
+      invWord = true;
       WnD--;
     }
 
@@ -59,31 +59,30 @@ unsigned int faStr2(const char  *   str) {
   return prettyWord;
 }
 
-
-unsigned int faStr3(const char *  str) {
+unsigned int faStr3(const char  *   str) {
   bool word = false;
   int count = 0;
   int sum = 0;
-  int lenghtNow = 0;
+  int lengthNow = 0; // исправлено на lengthNow
   int i = 0;
 
   while (str[i]) {
     if (str[i] != ' ' && word == false) {
       word = true;
       count++;
-      lenghtNow++;
+      lengthNow++; // исправлено на lengthNow
     } else if (str[i] != ' ' && word == true) {
-      lenghtNow++;
+      lengthNow++; // исправлено на lengthNow
     } else if (str[i] == ' ' && word == true) {
       word = false;
-      sum += lenghtNow;
-      lenghtNow = 0;
+      sum += lengthNow; // исправлено на lengthNow
+      lengthNow = 0;
     }
 
     i++;
   }
 
-  sum += lenghtNow;
+  sum += lengthNow; // исправлено на lengthNow
 
   if ((sum % count) >= 0.5) {
     return (sum / count) + 1;
@@ -91,3 +90,4 @@ unsigned int faStr3(const char *  str) {
     return sum / count;
   }
 }
+
