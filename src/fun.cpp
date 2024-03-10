@@ -11,11 +11,11 @@ unsigned int faStr1(const char *str) {
     int counter = 0;
     for (int i = 0; i < length; i++) {
         if (str[i] == ' ') {
-            inWord = false;
-            isValid = false;
             if (isValid) {
                 counter++;
             }
+            inWord = false;
+            isValid = false;
         } else {
             if (!inWord) {
                 isValid = true;
