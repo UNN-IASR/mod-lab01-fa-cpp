@@ -41,7 +41,7 @@ unsigned int faStr2(const char* str) {
             inW = true;
             Count_Words++;
         } else if (str[i] != ' ' && inW == true && !islower(str[i])) {
-            if(NoL == false) {
+            if (NoL == false) {
                 NoL = true;
             }
         } else if (str[i] == ' ' && inW == true) {
