@@ -1,5 +1,6 @@
 #include <cctype>
 #include <math.h>
+#include "fun.h"
 
 unsigned int faStr1(const char *  str) {
   int i = 0;
@@ -20,7 +21,6 @@ unsigned int faStr1(const char *  str) {
       inwWord = true;
       WnD--;
     }
-    
 
     i++;
   }
@@ -28,7 +28,7 @@ unsigned int faStr1(const char *  str) {
   return WnD;
 }
 
-unsigned int faStr2(const char *  str) {
+unsigned int faStr2(const char  *   str) {
   int i = 0;
   bool invalidWord = false; // булевая переменная, определяющая, допустимое ли слово или нет
   bool word = false; // булевая переменная, определяющая, находимся ли мы в слове в данный момент
@@ -42,7 +42,7 @@ unsigned int faStr2(const char *  str) {
       word = false;
     } else if (value != ' ' && word == false) { // Если начало слова
       word = true;
-      if (isupper(value)) {
+      if (isupper(value) && word) {
         prettyWord++;
       } else if (isalpha(value)) {
         invalidWord = true;
@@ -58,6 +58,7 @@ unsigned int faStr2(const char *  str) {
 
   return prettyWord;
 }
+
 
 unsigned int faStr3(const char *  str) {
   bool word = false;
