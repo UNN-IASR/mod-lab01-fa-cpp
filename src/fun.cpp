@@ -3,30 +3,24 @@
 #include <math.h>
 #include "fun.h"
 
-//определяет слова, не содержащие цифр и подсчитывает количество таких слов.
-unsigned int faStr1(const char* str)
-{
+unsigned int faStr1(const char* str) {
     bool inWord = false;
     bool isNumber = false; //определяет наличие цифр в слове
     int count = 0;
     int i = 0;
-    while (str[i])
-    {
+    while (str[i]) {
         //чтение слова на начале слова
-        if (str[i] != ' ' && inWord == false)
-        {
+        if (str[i] != ' ' && inWord == false) {
             inWord = true;
             count++;
         }
         //нашли цифру в слове
-        if (isdigit(str[i]) && inWord == true && isNumber == false)
-        {
+        if (isdigit(str[i]) && inWord == true && isNumber == false) {
             isNumber = true;
             count--;
         }
         //окончание слова
-        else if (str[i] == ' ' && inWord == true)
-        {
+        else if (str[i] == ' ' && inWord == true) {
             inWord = false;
             isNumber = false;
         }
@@ -36,8 +30,7 @@ unsigned int faStr1(const char* str)
 }
 
 //количество слов, начинающиеся на заглавную латинскую букву, а среди других символов этих слов только латинские строчные буквы.
-unsigned int faStr2(const char* str)
-{
+unsigned int faStr2(const char* str) {
     bool inWord = false;
     bool badWord = false; //бракует слово
     int count = 0;
@@ -45,10 +38,8 @@ unsigned int faStr2(const char* str)
     while (str[i])
     {
         //чтение слова на начале слова
-        if (str[i] != ' ' && inWord == false)
-        {
-            inWord = true;
-            {
+        if (str[i] != ' ' && inWord == false) {
+            inWord = true; {
                 if (isupper(str[i]))
                     count++;
                 else
@@ -56,14 +47,12 @@ unsigned int faStr2(const char* str)
             }
         }
         //нашли не строчную букву в слове
-        else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ' && inWord == true && badWord == false)
-        {
+        else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ' && inWord == true && badWord == false) {
             badWord = true;
             count--;
         }
         //окончание слова
-        else if (str[i] == ' ' && inWord == true)
-        {
+        else if (str[i] == ' ' && inWord == true) {
             badWord = false;
             inWord = false;
         }
@@ -73,24 +62,20 @@ unsigned int faStr2(const char* str)
 }
 
 // находит среднюю длину слова в строке, округляя ее до целого значения по правилам округления.
-unsigned int faStr3(const char* str)
-{
+unsigned int faStr3(const char* str) {
     bool inWord = false;
     int count = 0;
     int sum = 0; //сумма длин всех слов
     int lenghtNow = 0; //длина текущего слова
     int i = 0;
-    while (str[i])
-    {
-        if (str[i] != ' ' && inWord == false)
-        {
+    while (str[i]) {
+        if (str[i] != ' ' && inWord == false) {
             inWord = true;
             count++;
             lenghtNow++;
         }
         else if (str[i] != ' ' && inWord == true) lenghtNow++;
-        else if (str[i] == ' ' && inWord == true)
-        {
+        else if (str[i] == ' ' && inWord == true) {
             inWord = false;
             sum += lenghtNow;
             lenghtNow = 0;
