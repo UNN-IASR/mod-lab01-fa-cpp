@@ -11,7 +11,7 @@ int main() {
     unsigned int count = faStr2(str);
     std::cout << "Result of faStr2: " << count << std::endl;
 
-    const char* str = "This is a test string for average word length calculation";
+    const char* str = "This is a test string";
     unsigned int averageLength = faStr3(str);
     std::cout << "Result of faStr3: " << averageLength << std::endl;
     return 0;
