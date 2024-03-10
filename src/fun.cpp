@@ -75,5 +75,5 @@ while (str[index]) {
 if (flag) {
     Number++;
 }
-return (int)round(counter / Number);
+return round(counter / Number);
 }
