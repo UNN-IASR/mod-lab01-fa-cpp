@@ -18,7 +18,7 @@ unsigned int faStr1(const char *str) {
                 counter++;
             }
 
-        } else if (!isalpha(str[i]) {
+        } else if (!isalpha(str[i])) {
             isValid = false;
         } else {
             if (!inWord) {
@@ -26,7 +26,6 @@ unsigned int faStr1(const char *str) {
             }
             inWord = true;
         }
-
     }
     if (isValid) counter++;
     return counter;
