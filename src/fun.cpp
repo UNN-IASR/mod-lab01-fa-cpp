@@ -42,16 +42,13 @@ unsigned int faStr2(const char  *   str) {
       word = true;
       if (isupper(value) && value != ' ') {
         prettyWord++;
-      }
-      else {
+      } else {
         invalidWord = true;
       }
-    }
-    else if (isalpha(value)) {
+    } else if (isalpha(value)) {
       invalidWord = true;
       prettyWord--;
-    }
-    else if ((value == ' ' && word == true)) {
+    } else if ((value == ' ' && word == true)) {
       invalidWord = false;
       word = false;
     } // Если конец слова
