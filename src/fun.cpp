@@ -47,7 +47,7 @@ isword = true;
 if (isword && (str[i] == ' ' || str[i+1] == '\0')) {
 isword = false;
 counter++;
-}else if (isword) { sum++; }
+} else if (isword) { sum++; }
 i++;
 }
 if(sum % counter >= 0.5*counter) avg = sum/counter+1;
