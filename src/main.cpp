@@ -4,12 +4,12 @@
 
 int main() {
     const char* str1 = "Hello 123 World 456";
-    unsigned int count = faStr1(str1);
-    std::cout << "Result of faStr1: " << count << std::endl;
+    unsigned int count1 = faStr1(str1);
+    std::cout << "Result of faStr1: " << count1 << std::endl;
 
     const char* str2 = "Hello World hEllo apple Orange";
-    unsigned int count = faStr2(str2);
-    std::cout << "Result of faStr2: " << count << std::endl;
+    unsigned int count2 = faStr2(str2);
+    std::cout << "Result of faStr2: " << count2 << std::endl;
 
     const char* str3 = "This is a test string";
     unsigned int averageLength = faStr3(str3);
