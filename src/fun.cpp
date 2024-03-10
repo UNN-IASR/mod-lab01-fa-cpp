@@ -31,9 +31,9 @@ unsigned int faStr2(const char* str) {
             upperCaseFlag = false;
             latinWord = true;
         } else {
-            if (wordFlag == false && str[i] >= 'A' && str[i] <= 'Z') { 
+            if (wordFlag == false && str[i] >= 'A' && str[i] <= 'Z') {
                 upperCaseFlag = true; }
-            if (str[i] < 'A' || (str[i] > 'Z' && 
+            if (str[i] < 'A' || (str[i] > 'Z' &&
                 str[i] <= 'a') || str[i] > 'z') {
                 latinWord = false;}
             wordFlag = true;
@@ -54,10 +54,9 @@ unsigned int faStr3(const char* str) {
             wordFlag = false;
             totalLength += wordLength;
             wordLength = 0;
-        }
-         else {
+        } else {
             wordLength += 1;
-            wordFlag = true;}
+            wordFlag = true; }
     }
     totalLength += wordLength;
     if (wordLength != 0)counter++;
