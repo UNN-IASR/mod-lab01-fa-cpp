@@ -45,7 +45,7 @@ unsigned int faStr2(const char  *   str) {
       } else {
         invalidWord = true;
       }
-    } else if ((str[i] < 'a' || str[i] > 'z') && 
+    } else if ((str[i] < 'a' || str[i] > 'z') &&
       value != ' ') {
       if (word == true && invalidWord == false) {
         invalidWord = true;
