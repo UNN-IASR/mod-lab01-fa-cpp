@@ -11,7 +11,8 @@ unsigned int faStr1(const char *str) {
             inWord = true;
             count_word++;
         }
-        if (isdigit(str[i]) == true && inWord == true && isDigitInWord == false) {
+        if (isdigit(str[i]) == true && inWord == true
+                            && isDigitInWord == false) {
             isDigitInWord = true;
             count_word--;
         }
@@ -20,7 +21,7 @@ unsigned int faStr1(const char *str) {
             isDigitInWord = false;
         }
         i++;
-    } 
+    }
     return count_word;
 }
 
@@ -31,12 +32,18 @@ unsigned int faStr2(const char *str) {
     int count_word = 0;
     int i = 0;
     while (str[i]) {
-        if (str[i] != ' ' && inWord == false && isalpha(str[i]) == true && isupper(str[i]) == true) {
+        if (str[i] != ' ' && inWord == false
+            && isalpha(str[i]) == true
+            && isupper(str[i]) == true) {
             isNotFirst = true;
             inWord = true;
             count_word++;
-        }
-        else if (inWord == true && isNotFirst == true && str[i] != ' ' && isBad == false && (isalpha(str[i]) == false or islower(str[i]) == false)) {
+        } else if (inWord == true
+            && isNotFirst == true
+            && str[i] != ' '
+            && isBad == false
+            && (isalpha(str[i]) == false
+            || islower(str[i]) == false)) {
             isBad = true;
             count_word--;
         }
@@ -51,7 +58,7 @@ unsigned int faStr2(const char *str) {
             isBad = false;
         }
         i++;
-    } 
+    }
     return count_word;
 }
 
@@ -72,7 +79,7 @@ unsigned int faStr3(const char *str) {
             inWord = false;
         }
         i++;
-    } 
+    }
     return round(count_char*1.0/count_word);
 }
 
