@@ -54,8 +54,8 @@ unsigned int faStr2(const char* str)
 		}
 		if (str[i] != ' ' && inWord)
 		{
-			// если заглавной буквы в слове нет - приравниваем к числу
-			// если в остальный буквах есть заглавная - приравниваем к числу
+			// if there is no capital letter in the word - equate it to a number
+			// if there is a capital letter in the other letters - equate it to a number
 			if (!isStartUpper || ((isdigit(str[i]) && !isDigit) || (!isStartWord && isupper(str[i]) && !isDigit)))
 			{
 				isDigit = true;
