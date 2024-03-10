@@ -10,15 +10,21 @@ unsigned int faStr1(const char *str) {
     bool inWord = false;
     int counter = 0;
     for (int i = 0; i < length; i++) {
-        if (str[i] == ' ' && inWord) {
+        if (str[i] == ' ') {
+
             isValid = false;
             inWord = false;
-        } else if (str[i] != ' ' && inWord) {
+            if (inWord && isValid) {     
+                counter++;
+            }
+
+        } else if (!isalpha(str[i])) {
+            isValid = false;
+        } else {
+            if (!inWord) {
+                isValid = true;
+            }
             inWord = true;
-            counter++;
-        } else if (isdigit(str[i]) && inWord && !isValid) {
-            isValid = true;
-            counter--;
         }
     }
     if (isValid) counter++;
