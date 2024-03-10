@@ -1,7 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <iostream>
 #include <math.h>
+#include <iostream>
 
 unsigned int faStr1(const char *str) {
     bool InWord = false;
@@ -10,14 +10,15 @@ unsigned int faStr1(const char *str) {
     int i = 0;
     while (str[i]) {
         if (!isblank(str[i])) {
-            if (!InWord) //проверка на вхождение в слово
+            if (!InWord)
                 InWord = true;
-            if (isdigit(str[i])) HaveANumbers = true; //проверка встречи числа
-        }
-        else if (InWord) {
-            if (!HaveANumbers) NumOfWords++;
-            InWord = false;
-            HaveANumbers = false;
+            if (isdigit(str[i])) HaveANumbers = true; 
+        } else {
+            if (InWord) {
+                if (!HaveANumbers) NumOfWords++;
+                InWord = false;
+                HaveANumbers = false;
+            }
         }
         i++;
     }
@@ -32,17 +33,19 @@ unsigned int faStr2(const char *str) {
     int i = 0;
     while (str[i]) {
         if (!isblank(str[i])) {
-            if (!InWord) {//проверка на вхождение в слово c заглавной буквы
+            if (!InWord) {
                 InWord = true;
-                if (!isupper(str[i])) Reject = true; //проверка заглавной буквы
+                if (!isupper(str[i])) Reject = true;
+            } else { 
+                if (!islower(str[i])) Reject = true; 
             }
-            else if (!islower(str[i])) Reject = true; //проверка встречи не строчной буквы
-        }
-        else if (InWord) {
-            if (!Reject) NumOfWords++;
-            InWord = false;
-            Reject = false;
-        }
+        }    else {
+                if (InWord) {
+                    if (!Reject) NumOfWords++;
+                    InWord = false;
+                    Reject = false;
+                }
+            }
         i++;
     }
     if (InWord && !Reject) NumOfWords++;
@@ -56,14 +59,15 @@ unsigned int faStr3(const char *str) {
     int i = 0;
     while (str[i]) {
         if (!isblank(str[i])) {
-            if (!InWord) {        //проверка на вхождение в слово c заглавной буквы
+            if (!InWord) {
                 InWord = true;
                 NumOfWords++;
             }
             SumOfSymbols++;
-        }
-        else if (InWord) InWord = false;
+        }  else {
+                if (InWord) InWord = false;
+            }
         i++;
     }
-    return round(SumOfSymbols/(double)NumOfWords);
+    return round(SumOfSymbols/(static_cast<double>(NumOfWords));
 }
