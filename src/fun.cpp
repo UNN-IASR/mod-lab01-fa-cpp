@@ -1,31 +1,28 @@
 // Copyright 2022 UNN-IASR
-#include "fun.h"
 #include <iostream>
-#include <string>
-#include <math.h>
-#include<list>
+#include <cmath>
+#include <cctype>
 unsigned int faStr1(const char *str) {
+    bool InWord = false;
+    bool HaveANumbers = false;
+    int NumOfWords = 0;
     int i = 0;
-    bool space = false;
-    bool stopCount = false;
-    int count = 0;
     while (str[i]) {
-        if (str[i] != ' ') {
-            space = true;
-        }
-        if (str[i] >= '0' && str[i] <= '9') {
-            stopCount = true;
-        }
-        if (str[i] == ' ' && space == true) {
-            if (stopCount == false) {
-                count++;
+        if (!isblank(str[i])) {
+            if (!InWord)
+                InWord = true;
+            if (isdigit(str[i])) HaveANumbers = true;
+        } else {
+            if (InWord) {
+                if (!HaveANumbers) NumOfWords++;
+                InWord = false;
+                HaveANumbers = false;
             }
-            space = false;
-            stopCount = false;
         }
         i++;
     }
-    return count;
+    if (InWord && !HaveANumbers) NumOfWords++;
+    return NumOfWords;
 }
 
 unsigned int faStr2(const char *str) {
@@ -51,24 +48,19 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    bool Word = false;
-    float Sum = 0;
-    int Words = 0;
-    while (*str != '\0') {
-        if (*str == ' ') {
-            if (Word) {
-                Words++;
-            }
-            Word = false;
+    bool inWord = false;
+    int counter = 0;
+    int i = 0;
+    int len = 0;
+    while (str[i] != '\0') {
+        if (str[i] != ' ') {
+            if (!inWord) counter++;
+            inWord = true;
+            len++;
+        } else if (str[i] == ' ' && inWord) {
+            inWord = false;
         }
-        else {
-            Word = true;
-            Sum++;
-        }
-        str++;
+        i++;
     }
-    if (Word) {
-        Words++;
-    }
-    return std::round(Sum / Words);
+    return round(static_cast<float>(len)/counter);
 }
