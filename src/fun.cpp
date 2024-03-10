@@ -4,7 +4,6 @@
 #include <cmath>
 
 unsigned int faStr1(const char *str) {
-
     int i = 0;
     bool wentIntoWord = false;
     int tempWord = 0;
@@ -27,7 +26,6 @@ unsigned int faStr1(const char *str) {
     }
 
 unsigned int faStr2(const char *str) {
-
     int i = 0;
     bool wentIntoWord = false;
     int tempWord = 0;
@@ -40,14 +38,15 @@ unsigned int faStr2(const char *str) {
         } else if (wentIntoWord && str[i] == ' ') {
             numWords += tempWord;
             wentIntoWord = false;
-        } else if (wentIntoWord && !islower(str[i])) tempWord = 0;
+        } else if (wentIntoWord && !islower(str[i])) {
+            tempWord = 0;
+        }
         i++;
     }
     return numWords;
     }
 
 unsigned int faStr3(const char *str) {
-
     int i = 0;
     bool wentIntoWord = false;
     int countWords = 0;
