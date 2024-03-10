@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-IASR
 #include <iostream>
 #include <cmath>
 #include <cctype>
@@ -37,7 +38,8 @@ unsigned int faStr2(const char *str) {
         } else if (str[i] == ' ' && inWord) {
             isCorrectWord = false;
             inWord = false;
-        } else if (inWord && isCorrectWord && !(str[i] >= 97 && str[i] <= 122)) {
+        } else if (inWord && isCorrectWord
+            && !(str[i] >= 97 && str[i] <= 122)) {
             isCorrectWord = false;
             counter--;
         }
