@@ -2,6 +2,7 @@
 #include "fun.h"
 #include <iostream>
 #include <string>
+#include <math.h>
 #include<list>
 unsigned int faStr1(const char *str) {
     int i = 0;
@@ -28,27 +29,25 @@ unsigned int faStr1(const char *str) {
 }
 
 unsigned int faStr2(const char *str) {
-    int iter = 0;
-    unsigned int rezult = 0;
-    bool Verification = true;
-    bool VerifWorld = false;
-    while (str[iter]) {
-        if (!VerifWorld && str[iter] != ' ') 
-        {
-            VerifWorld = true;
-            Verification = isupper(str[iter]);
+    bool flag = false;
+    int i = 0;
+    int count = 0;
+    int result = 0;
+    while (str[i]) {
+        if (!flag && str[i] != ' ' && str[i] >= 65 && str[i] <= 90) {
+            flag = true;
+            count = 1;
         }
-        else if (VerifWorld && str[iter] != ' ') {
-            if (!islower(str[iter])) Verification = false;
+        else if (flag && str[i] == ' ') {
+            flag = false;
+            result += count;
         }
-        if (VerifWorld && (str[iter] == ' ' || str[iter + 1] == '\0')) {
-            if (Verification) rezult++ ;
-            Verification = true;
-            VerifWorld = false;
+        else if (str[i] < 97 || str[i] > 122) {
+            count = 0;
         }
-        iter++;
+        i++;
     }
-    return rezult;
+    return result;
 }
 
 unsigned int faStr3(const char *str) {
