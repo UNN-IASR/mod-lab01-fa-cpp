@@ -54,9 +54,8 @@ unsigned int faStr2(const char  *   str) {
     } // Если конец слова
 
     i++;
-  } 
+  }
 }
-
 unsigned int faStr3(const char  *   str) {
   bool word = false;
   int count = 0;
@@ -88,5 +87,3 @@ unsigned int faStr3(const char  *   str) {
     return sum / count;
   }
 }
-
-
