@@ -20,20 +20,18 @@ i++;
 return counter;
 }
 
-unsigned int faStr2(const char* str) { 
+unsigned int faStr2(const char* str) {
 unsigned int counter = 0, i = 0;
 bool isword = false, right_word = false;
 while (str[i]) {
 if (!isword && str[i] != ' ') {
 isword = true;
 if(str[i] >= 'A'&&str[i] <= 'Z')right_word = true;
-}
-else if (isword && (str[i] == ' '|| str[i+1] == '\0')) {
+} else if (isword && (str[i] == ' '|| str[i+1] == '\0')) {
 isword = false;
 if (right_word) counter++;
 right_word = false;
-}
-else if (str[i] < 'a' || str[i] > 'z')right_word = false;
+} else if (str[i] < 'a' || str[i] > 'z') { right_word = false; }
 i++;
 }
 return counter;
@@ -49,11 +47,11 @@ isword = true;
 if (isword && (str[i] == ' ' || str[i+1] == '\0')) {
 isword = false;
 counter++;
-} else if (isword)sum++;
+}else if (isword) { sum++; }
 i++;
 }
 if(sum % counter >= 0.5*counter) avg = sum/counter+1;
-else 
+else
 avg = sum / counter;
 return avg;
 }
