@@ -40,8 +40,7 @@ unsigned int faStr2(const char* str) {
                     if (isWord && isupper(str[i]) || isWord && isdigit(str[i]))
                         isWord = false;
                 space = false;
-            }
-            else isWord = false;
+            } else isWord = false;
         }
     }
     if (isWord) count++;
@@ -56,7 +55,7 @@ unsigned int faStr3(const char* str) {
             space = true;
             if (isWord) countWord++;
             isWord = false;
-        } else { 
+        } else {
             count++;
             isWord = true;
         }
