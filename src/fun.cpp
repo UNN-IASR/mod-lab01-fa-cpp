@@ -37,7 +37,7 @@ unsigned int faStr2(const char* str) {
 			no = false;
 		}
 		if (i != 0 && str[i - 1] != ' ') {
-			if (inWord && !no && (!AA || str[i] < 'a' || str[i] > 'z') ) {
+			if (inWord && !no && (!AA || str[i] < 'a' || str[i] > 'z')) {
 				count--;
 				no = true;
 			}
