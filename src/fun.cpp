@@ -10,12 +10,13 @@ unsigned int faStr1(const char *str) {
     int counter = 0;
     for (int i = 0; i < length; i++) {
         if (isdigit(str[i])) isValid = false;
-        else if (str[i] = ' ') {
+        else if (str[i] == ' ') {
             if (isValid) {
                 isValid = false;
                 counter++;
+            } else {
+                isValid = false;
             }
-            else isValid = false;
         }
     }
     if (isValid) counter++;
@@ -28,28 +29,27 @@ unsigned int faStr2(const char *str) {
     bool inWord = false;
     int counter = 0;
     for (int i = 0; i < length-1; i++) {
-        if (str[i] = ' ') {
+        if (str[i] == ' ') {
             if (isValid) {
                 isValid = false;
                 inWord = false;
                 counter++;
-            }
-            else {
+            } else {
                 isValid = false;
                 inWord = false;
             }
-        }
-        else if (!inWord) {
+        } else if (!inWord) {
             inWord = true;
-            if (isupper(current)) {
+            if (isupper(str[i])) {
                 isValid = true;
             }
-        }
-        else if (inWord && (isupper(current) || !isalpha(current))) {
+        } else if (inWord && (isupper(str[i]) || !isalpha(str[i]))) {
             isValid = false;
         }
     }
-    if (isValid) counter++;
+    if (isValid) {
+        counter++;
+    }
     return counter;
 }
 
@@ -59,17 +59,18 @@ unsigned int faStr3(const char *str) {
     int wordCounter = 0;
     int letterCounter = 0;
     for (int i = 0; i < length; i++) {
-        if (str[i] = ' ') {
+        if (str[i] == ' ') {
             if (inWord) {
                 inWord = false;
                 wordCounter++;
             }
-        }
-        else {
+        } else {
             inWord = true;
             letterCounter++;
         }
     }
-    if (inWord) wordCounter++;
+    if (inWord) {
+        wordCounter++;
+    }
     return round(letterCounter / wordCounter);
 }
