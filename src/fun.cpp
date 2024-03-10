@@ -2,7 +2,7 @@
 #include "fun.h"
 #include <iostream>
 #include <math.h>
-using namespace std;
+
 unsigned int faStr1(const char *str) {
     bool InWord = false;
     bool HaveANumbers = false;
