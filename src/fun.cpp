@@ -36,11 +36,10 @@ unsigned int faStr2(const char* str) {
         } else {
             if (std::isalpha(str[i])) {
                 if (space && isupper(str[i]) && !isdigit(str[i])) isWord = true;
-                else
-                    if (isWord && isupper(str[i]) || isWord && isdigit(str[i]))
-                        isWord = false;
+                if (!space && isWord && isupper(str[i])) isWord = false;
+                if (!space && isWord && isdigit(str[i])) isWord = false;
                 space = false;
-            } else isWord = false;
+            } else { isWord = false; }
         }
     }
     if (isWord) count++;
