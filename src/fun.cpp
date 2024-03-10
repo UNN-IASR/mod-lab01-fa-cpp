@@ -2,30 +2,30 @@
 #include "fun.h"
 #include <cmath>
 
-unsigned int faStr1(const char *str) {
-    unsigned int counter = 0;
+unsigned int faStr1(const char* str) {
+    int counter = 0;
     bool wordFlag = false;
     bool noNumFlag = true;
-    for (int i = 0; i<sizeof(str); i++) {
+    for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ') {
             if (wordFlag && noNumFlag) counter++;
             wordFlag = false;
-            noNumFlag == true;
+            noNumFlag = true;
         }
         else {
             wordFlag = true;
-            if ((int)str[i] >= 48 && (int)str[i] <= 57)noNumFlag = false;
+            if (str[i] >= '0' && str[i] <= '9')noNumFlag = false;
         }
     }
     return counter;
 }
 
-unsigned int faStr2(const char *str) {
-    unsigned int counter = 0;
+unsigned int faStr2(const char* str) {
+    int counter = 0;
     bool wordFlag = false;
     bool upperCaseFlag = false;
     bool latinWord = true;
-    for (int i = 0; i<sizeof(str); i++) {
+    for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ') {
             if (wordFlag && upperCaseFlag && latinWord) counter++;
             wordFlag = false;
@@ -33,21 +33,21 @@ unsigned int faStr2(const char *str) {
             latinWord = true;
         }
         else {
-            if(wordFlag==false && (int)str[i] >= 65 && (int)str[i] <= 90) upperCaseFlag = true;
-            if ((int)str[i] <= 65 || ((int)str[i] >= 91 && (int)str[i] <= 96) || (int)str[i] >= 123) latinWord = false;
+            if (wordFlag == false && str[i] >= 'A' && str[i] <= 'Z') upperCaseFlag = true;
+            if ((int)str[i] < 'A' || ((int)str[i] > 'Z' && (int)str[i] <= 'a') || (int)str[i] > 'z') latinWord = false;
             wordFlag = true;
         }
     }
     return counter;
 }
 
-unsigned int faStr3(const char *str) {
-    unsigned int counter = 0;
+unsigned int faStr3(const char* str) {
+    int counter = 0;
     bool wordFlag = false;
     float totalLength = 0;
     int wordLength = 0;
-    
-    for (int i = 0; i<sizeof(str); i++) {
+
+    for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ') {
             if (wordFlag) counter++;
             wordFlag = false;
@@ -59,5 +59,7 @@ unsigned int faStr3(const char *str) {
             wordFlag = true;
         }
     }
-    return round(totalLength/counter);
+    totalLength += wordLength;
+    counter++;
+    return round(totalLength / counter);
 }
