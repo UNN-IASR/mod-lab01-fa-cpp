@@ -13,12 +13,10 @@ unsigned int faStr1(const char *str) {
         if (str[i] == ' ' && inWord) {
             isValid = false;
             inWord = false;
-        }
-        else if (value != ' ' && inWord) {
+        } else if (str[i] != ' ' && inWord) {
             inWord = true;
             counter++;
-        }
-        else if (isdigit(value) && inWord && !isValid) {
+        } else if (isdigit(str[i]) && inWord && !isValid) {
             isValid = true;
             counter--;
         }
