@@ -23,7 +23,9 @@ unsigned int faStr1(const char* str) {
                 count--;
             }
         }
-        if (str[i] == ' ' && inWord) inWord = false;
+        if (str[i] == ' ' && inWord) {
+            inWord = false;
+        }
         i++;
     }
     return count;
@@ -49,16 +51,19 @@ unsigned int faStr2(const char* str) {
             // if there is no capital letter in the word - equate it to a number
             // if there is a capital letter in the other letters - equate it to a
             // number
-            if (!isStartUpper || ((isdigit(str[i]) && !isDigit) ||
-                (!isStartWord && isupper(str[i]) && !isDigit) ||
-                (!isalpha(str[i]) && !isDigit))) {
+            if (!isStartUpper ||
+                ((isdigit(str[i]) && !isDigit) ||
+                    (!isStartWord && isupper(str[i]) && !isDigit) ||
+                    (!isalpha(str[i]) && !isDigit))) {
                 isDigit = true;
                 isStartUpper = true;
                 count--;
             }
             isStartWord = false;
         }
-        if (str[i] == ' ' && inWord) inWord = false;
+        if (str[i] == ' ' && inWord) {
+            inWord = false;
+        }
         i++;
     }
     return count;
@@ -75,8 +80,9 @@ unsigned int faStr3(const char* str) {
             inWord = true;
             count++;
         }
-        if (str[i] != ' ' && inWord)
+        if (str[i] != ' ' && inWord) {
             wordLength++;
+        }
         else if (str[i] == ' ' && inWord == true) {
             inWord = false;
         }
