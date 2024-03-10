@@ -62,7 +62,7 @@ unsigned int faStr3(const char* str) {
             flagInWord = true;
             wCount++;
             symbCount++;
-        }else if (flagInWord && str[i] != ' ') {
+        } else if (flagInWord && str[i] != ' ') {
             symbCount++;
         }
         if (flagInWord && (str[i] == ' ' || str[i + 1] == '\0')) {
@@ -70,5 +70,5 @@ unsigned int faStr3(const char* str) {
         }
         i++;
     }
-    return ((int)round((double)symbCount/wCount));
+    return static_cast<int>(round((double)symbCount/wCount));
 }
