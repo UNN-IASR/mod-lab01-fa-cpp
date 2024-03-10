@@ -73,7 +73,7 @@ unsigned int faStr3(const char* str) {
 	int str_len = 0;
 	//int len = 0;
 	int i = 0;
-	while (str[i]) // обращение к текущему символу полное выраж - str[i]!='\0'
+	while (str[i])
 	{
 		if (str[i] != ' ' && inWord == false)
 		{
@@ -88,7 +88,7 @@ unsigned int faStr3(const char* str) {
 			inWord = false;
 		i++;
 	}
-	double average = round((double)str_len / count);
+	double average = round((double)str_len / (double)count);
 	std::cout << average << std::endl;
     return 0;
 }
