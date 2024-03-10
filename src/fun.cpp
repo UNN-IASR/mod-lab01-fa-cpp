@@ -1,7 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <cctype>
 #include <math.h>
+#include <cctype>
 
 unsigned int faStr1(const char  *   str) {
   int i = 0;
@@ -40,14 +40,16 @@ unsigned int faStr2(const char  *   str) {
 
     if (value != ' ' && word == false) { // Если начало слова
       word = true;
-      if (isupper(value) && value != ' ') {
+      if (isupper(value)) {
         prettyWord++;
       } else {
         invalidWord = true;
       }
-    } else if (isalpha(value)) {
-      invalidWord = true;
-      prettyWord--;
+    } else if (isalpha(value) && value != ' ') {
+      if (word == true && invalidWord == false) {
+        invalidWord = true;
+        prettyWord--;
+      }
     } else if ((value == ' ' && word == true)) {
       invalidWord = false;
       word = false;
