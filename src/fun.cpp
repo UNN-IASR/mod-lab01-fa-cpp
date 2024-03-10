@@ -55,6 +55,8 @@ unsigned int faStr2(const char  *   str) {
 
     i++;
   }
+  
+  return prettyWord;
 }
 unsigned int faStr3(const char  *   str) {
   bool word = false;
