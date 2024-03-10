@@ -7,19 +7,20 @@
 unsigned int faStr1(const char *str) {
     int length = strlen(str);
     bool isValid = false;
+    bool inWord = false;
     int counter = 0;
     for (int i = 0; i < length; i++) {
-        if (isalpha(str[i])) {
-            isValid = true;
-        } else if (isdigit(str[i])) {
+        if (str[i] == ' ' && inWord) {
             isValid = false;
-        } else if (str[i] == ' ') {
-            if (isValid) {
-                isValid = false;
-                counter++;
-            } else {
-                isValid = false;
-            }
+            inWord = false;
+        }
+        else if (value != ' ' && inWord) {
+            inWord = true;
+            counter++;
+        }
+        else if (isdigit(value) && inWord && !isValid) {
+            isValid = true;
+            counter--;
         }
     }
     if (isValid) counter++;
