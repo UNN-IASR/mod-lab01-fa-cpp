@@ -25,7 +25,6 @@ unsigned int faStr1(const char *str)
 			{
 				count--;
 				digit = false;
-				
 			}
 			inWord = false;
 		}
@@ -34,7 +33,6 @@ unsigned int faStr1(const char *str)
 	
 	std::cout << count<<std::endl;
 	return count;
-
 }
 
 unsigned int faStr2(const char* str) {
@@ -42,7 +40,6 @@ unsigned int faStr2(const char* str) {
 	int count = 0;
 	int i = 0;
 	bool Up = false;
-
 	while (str[i]) 
 	{
 		if (str[i] != ' ' && inWord == false && isupper(str[i]))
@@ -62,27 +59,20 @@ unsigned int faStr2(const char* str) {
 		}
 		 if(Up==true)
 		 {
-			 
 			 Up = false;
 		 }
-
-
 		i++;
 	}
 	std::cout << count << std::endl;
 	return count;
-	
-    
 }
 
 unsigned int faStr3(const char* str) {
-	bool inWord = false; // мы еще не вошли в слово(находимся на левой границе м.Тью)
+	bool inWord = false;
 	int count = 0;
 	int str_len = 0;
 	//int len = 0;
 	int i = 0;
-
-
 	while (str[i]) // обращение к текущему символу полное выраж - str[i]!='\0'
 	{
 		if (str[i] != ' ' && inWord == false)
@@ -94,10 +84,8 @@ unsigned int faStr3(const char* str) {
 		{
 			str_len++;
 		}
-
 		else if (str[i] == ' ' && inWord == true)
 			inWord = false;
-
 		i++;
 	}
 	double average = round((double)str_len / count);
