@@ -13,12 +13,10 @@ unsigned int faStr1(const char* str)
         if (str[i] != ' ' && inWord == false) {
             inWord = true;
             count++;
-        }   //нашли цифру в слове
-        if (isdigit(str[i]) && inWord == true && isNumber == false) {
+        }   if (isdigit(str[i]) && inWord == true && isNumber == false) { 
             isNumber = true;
             count--;
-        }   //окончание слова
-        else if (str[i] == ' ' && inWord == true) {
+        }   else if (str[i] == ' ' && inWord == true) {
             inWord = false;
             isNumber = false;
         }
@@ -32,19 +30,18 @@ unsigned int faStr2(const char* str)
     bool badWord = false; //бракует слово
     int count = 0;
     int i = 0;
-    while (str[i])
-    {
+    while (str[i]) {
         if (str[i] != ' ' && inWord == false) {  //чтение слова на начале слова
-            inWord = true; {
-                if (isupper(str[i])) count++;
-                else badWord = true;
+            inWord = true; { 
+                if (isupper(str[i])) 
+                    count++;
+                else 
+                    badWord = true;
             }
-        }
-        else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ' && inWord == true && badWord == false) {  //нашли не строчную букву в слове
+        } else if ((str[i] < 'a' || str[i] > 'z') && str[i] != ' ' && inWord == true && badWord == false) {  //нашли не строчную букву в слове
             badWord = true;
             count--;
-        }
-        else if (str[i] == ' ' && inWord == true) {  //окончание слова
+        } else if (str[i] == ' ' && inWord == true) {  //окончание слова
             badWord = false;
             inWord = false;
         }
@@ -64,8 +61,7 @@ unsigned int faStr3(const char* str)
             inWord = true;
             count++;
             lenghtNow++;
-        }
-        else if (str[i] != ' ' && inWord == true) lenghtNow++;
+        } else if (str[i] != ' ' && inWord == true) lenghtNow++;
         else if (str[i] == ' ' && inWord == true) {
             inWord = false;
             sum += lenghtNow;
