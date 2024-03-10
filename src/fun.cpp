@@ -48,8 +48,10 @@ unsigned int faStr2(const char* str) {
             count++;
         }
         if (str[i] != ' ' && inWord) {
-            // if there is no capital letter in the word - equate it to a number
-            // if there is a capital letter in the other letters - equate it to a
+            // if there is no capital letter in the word
+            // - equate it to a number
+            // if there is a capital letter in the other letters
+            // - equate it to a
             // number
             if (!isStartUpper ||
                 ((isdigit(str[i]) && !isDigit) ||
