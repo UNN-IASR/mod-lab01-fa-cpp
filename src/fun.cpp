@@ -45,7 +45,8 @@ unsigned int faStr2(const char  *   str) {
       } else {
         invalidWord = true;
       }
-    } else if (isalpha(value) && value != ' ') {
+    } else if ((str[i] < 'a' || str[i] > 'z') && 
+      value != ' ') {
       if (word == true && invalidWord == false) {
         invalidWord = true;
         prettyWord--;
@@ -54,10 +55,8 @@ unsigned int faStr2(const char  *   str) {
       invalidWord = false;
       word = false;
     } // Если конец слова
-
     i++;
   }
-  
   return prettyWord;
 }
 unsigned int faStr3(const char  *   str) {
