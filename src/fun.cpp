@@ -2,12 +2,12 @@
 #include "fun.h"
 #include <cmath>
 unsigned int faStr1(const char* str) {
-	bool inWord = false, num = false;
-	int count = 0, i = 0;
-	while (str[i] != '\0') {
-		if (str[i] != ' ' && inWord == false) {
-			inWord = true;
-			count++;
+    bool inWord = false, num = false;
+    int count = 0, i = 0;
+    while (str[i] != '\0') {
+        if (str[i] != ' ' && inWord == false) {
+            inWord = true;
+            count++;
 		} else if (str[i] == ' ' && inWord == true) {
 			inWord = false;
 			num = false;
@@ -52,7 +52,7 @@ unsigned int faStr3(const char* str) {
 	int i = 0;
 	float count = 0, count_s = 0;
 	float lenght = 0;
-	while (str[i] != '\n') {
+	while (str[i] != '\0') {
 		if (str[i] != ' ' && inWord == false) {
 			inWord = true;
 			count++;
