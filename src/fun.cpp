@@ -13,13 +13,14 @@ unsigned int faStr1(const char *  str) {
     if (value == ' ' && word == true) {
       invWord = false;
       word = false;
-    } else if (value != ' ' && word == false ) {
+    } else if (value != ' ' && word == false) {
       word = true;
-      if (isdigit(value) && !invWord) {
-        invWord = true;
-        WnD++;
-      }
+      WnD++;
+    } else if (isdigit(value) && word == true && !invWord) {
+      inwWord = true;
+      WnD--;
     }
+    
 
     i++;
   }
