@@ -69,5 +69,5 @@ unsigned int faStr3(const char *str) {
             }
         i++;
     }
-    return round(SumOfSymbols/(static_cast<double>(NumOfWords));
+    return round(SumOfSymbols/(static_cast<double>(NumOfWords)));
 }
