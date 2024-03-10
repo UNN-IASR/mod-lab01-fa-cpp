@@ -10,10 +10,10 @@ unsigned int faStr1(const char *  str) {
   while (str[i]) {
     char value = str[i];
 
-    if (value == ' ') {
+    if (value == ' ' && word == true) {
       invWord = false;
       word = false;
-    } else {
+    } else if (value != ' ' && word == false ) {
       word = true;
       if (isdigit(value) && !invWord) {
         invWord = true;
