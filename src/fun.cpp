@@ -58,7 +58,7 @@ return Number;
 
 unsigned int faStr3(const char *str) {
 double Number = 0;
-flag = false;
+bool flag = false;
 double counter = 0;
 int index = 0;
 while (str[index]) {
@@ -75,5 +75,5 @@ while (str[index]) {
 if (flag) {
     Number++;
 }
-return round(counter / Number);
+return (int)round(counter / Number);
 }
