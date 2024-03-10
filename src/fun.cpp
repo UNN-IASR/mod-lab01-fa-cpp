@@ -70,5 +70,8 @@ unsigned int faStr3(const char* str) {
         }
         i++;
     }
-    return static_cast<int>(round((double)symbCount/wCount));
+
+    double avg = static_cast<double>(symbCount / wCount);
+
+    return static_cast<int>(round(avg));
 }
