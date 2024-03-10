@@ -8,7 +8,7 @@ unsigned int faStr1(const char* str) {
         if (str[i] != ' ' && inWord == false) {
             inWord = true;
             count++;
-		} else if (str[i] == ' ' && inWord == true) {
+                } else if (str[i] == ' ' && inWord == true) {
 			inWord = false;
 			num = false;
 		}
