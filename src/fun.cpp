@@ -9,8 +9,11 @@ unsigned int faStr1(const char *str) {
     bool isValid = false;
     int counter = 0;
     for (int i = 0; i < length; i++) {
-        if (isdigit(str[i])) isValid = false;
-        else if (str[i] == ' ') {
+        if (isalpha(str[i])) {
+            isValid = true;
+        } else if (isdigit(str[i])) {
+            isValid = false;
+        } else if (str[i] == ' ') {
             if (isValid) {
                 isValid = false;
                 counter++;
