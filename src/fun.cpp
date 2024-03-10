@@ -12,12 +12,10 @@ unsigned int faStr1(const char* str) {
         if (str[i] != ' ' && inWord == false) {
             inWord = true;
             thisNumber = isdigit(str[i]);
-        }
-        else if (str[i] != ' ' && inWord == true) {
+        } else if (str[i] != ' ' && inWord == true) {
             if (thisNumber == false)
                 thisNumber = isdigit(str[i]);
-        }
-        else if (str[i] == ' ' && inWord == true) {
+        } else if (str[i] == ' ' && inWord == true) {
             if (thisNumber == false)
                 count++;
             inWord = false;
@@ -36,11 +34,9 @@ unsigned int faStr2(const char* str) {
         if (str[i] != ' ' && inWord == false) {
             inWord = true;
             isright = isupper(str[i]);
-        }
-        else if (str[i] != ' ' && inWord == true) {
+        } else if (str[i] != ' ' && inWord == true) {
             if (isright == true) isright = islower(str[i]);
-        }
-        else if (str[i] == ' ' && inWord == true) {
+        } else if (str[i] == ' ' && inWord == true) {
             if (isright == true)
                 count++;
             inWord = false;
@@ -60,11 +56,9 @@ unsigned int faStr3(const char* str) {
             inWord = true;
             countLength++;
             countWord++;
-        }
-        else if (str[i] != ' ' && inWord == true) {
+        } else if (str[i] != ' ' && inWord == true) {
             countLength++;
-        }
-        else if (str[i] == ' ' && inWord == true) {
+        } else if (str[i] == ' ' && inWord == true) {
             inWord = false;
         }
         i++;
