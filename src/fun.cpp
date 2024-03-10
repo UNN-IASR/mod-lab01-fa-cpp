@@ -11,10 +11,9 @@ unsigned int faStr1(const char* str) {
             if (wordFlag && noNumFlag) counter++;
             wordFlag = false;
             noNumFlag = true;
-        }
-        else {
+        } else {
             wordFlag = true;
-            if (str[i] >= '0' && str[i] <= '9')noNumFlag = false;
+            if (str[i] >= '0' && str[i] <= '9'){noNumFlag = false;}
         }
     }
     return counter;
@@ -31,10 +30,10 @@ unsigned int faStr2(const char* str) {
             wordFlag = false;
             upperCaseFlag = false;
             latinWord = true;
-        }
-        else {
+        } else {
             if (wordFlag == false && str[i] >= 'A' && str[i] <= 'Z') upperCaseFlag = true;
-            if ((int)str[i] < 'A' || ((int)str[i] > 'Z' && (int)str[i] <= 'a') || (int)str[i] > 'z') latinWord = false;
+            if ((int)str[i] < 'A' || ((int)str[i] > 'Z' && (int)str[i] <= 'a') || (int)str[i] > 'z') {
+                latinWord = false;}
             wordFlag = true;
         }
     }
@@ -52,14 +51,12 @@ unsigned int faStr3(const char* str) {
             if (wordFlag) counter++;
             wordFlag = false;
             totalLength += wordLength;
-            wordLength = 0;
-        }
-        else {
+            wordLength = 0;}
+         else {
             wordLength += 1;
-            wordFlag = true;
-        }
+            wordFlag = true;}
     }
     totalLength += wordLength;
-    counter++;
+    if (wordLength != 0)counter++;
     return round(totalLength / counter);
 }
