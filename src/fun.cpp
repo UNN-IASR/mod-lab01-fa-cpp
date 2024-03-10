@@ -38,5 +38,25 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    return 0;
+    std::string inputStr(str);
+    int wordCount = 0;
+    int totalWordLength = 0;
+    bool inWord = false;
+    for (char c : inputStr) {
+        if (std::isalpha(c)) {
+            inWord = true;
+            totalWordLength++;
+        } 
+        else if (inWord) {
+            wordCount++;
+            inWord = false;
+        }
+    }
+    if (inWord) {
+        wordCount++;
+    }
+    if (wordCount == 0) {
+        return 0; 
+    }
+    return totalWordLength / wordCount;
 }
