@@ -22,18 +22,24 @@ unsigned int faStr1(const char *str) {
 }
 
 unsigned int faStr2(const char *str) {
-    std::regex words(R"([A-Z][a-z,]+)"); 
+    std::regex wordRegex(R"([A-Z][a-z,.]+)");
     std::string inputStr(str);
-    std::sregex_iterator it(inputStr.begin(), inputStr.end(), words);
+    std::sregex_iterator it(inputStr.begin(), inputStr.end(), wordRegex);
     std::sregex_iterator itEnd;
-
     unsigned int count = 0;
-
-    while (it != itEnd) {
-        ++count;
-        ++it;
+    for (; it != itEnd; ++it) {
+        const std::smatch& match = *it;
+        bool includesSeparators = false;
+        for (char c : match.str()) {
+            if (c == ' ' || c == ',' || c == '.') {
+                includesSeparators = true;
+                break;
+            }
+        }
+        if (!includesSeparators) {
+            ++count;
+        }
     }
-
     return count;
 }
 
