@@ -12,7 +12,7 @@ unsigned int faStr1(const char *str) {
         if (!isblank(str[i])) {
             if (!InWord)
                 InWord = true;
-            if (isdigit(str[i])) HaveANumbers = true; 
+            if (isdigit(str[i])) HaveANumbers = true;
         } else {
             if (InWord) {
                 if (!HaveANumbers) NumOfWords++;
@@ -36,8 +36,8 @@ unsigned int faStr2(const char *str) {
             if (!InWord) {
                 InWord = true;
                 if (!isupper(str[i])) Reject = true;
-            } else { 
-                if (!islower(str[i])) Reject = true; 
+            } else {
+                if (!islower(str[i])) Reject = true;
             }
         }    else {
                 if (InWord) {
