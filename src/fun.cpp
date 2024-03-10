@@ -1,6 +1,6 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-
+#include <cmath>
 unsigned int faStr1(const char* str) {
 	bool inWord = false, num = false;
 	int count = 0, i = 0;
