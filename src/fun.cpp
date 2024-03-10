@@ -1,11 +1,12 @@
+// Copyright 2022 UNN-IASR
+#include "fun.h"
 #include <cctype>
 #include <math.h>
-#include "fun.h"
 
 unsigned int faStr1(const char  *   str) {
   int i = 0;
-  bool invWord = false; // булевая переменная, определяющая, допустимое ли слово или нет
-  bool word = false; // булевая переменная, определяющая, находимся ли мы в слове в данный момент
+  bool invWord = false; // Допустимое ли слово или нет
+  bool word = false; // Находимся ли мы в слове в данный момент
   int WnD = 0; // Количество слов, в которых не содержатся цифры
 
   while (str[i]) {
@@ -30,33 +31,33 @@ unsigned int faStr1(const char  *   str) {
 
 unsigned int faStr2(const char  *   str) {
   int i = 0;
-  bool invalidWord = false; // булевая переменная, определяющая, допустимое ли слово или нет
-  bool word = false; // булевая переменная, определяющая, находимся ли мы в слове в данный момент
-  int prettyWord = 0; // Количество слов, в которых содержится заглавная латинская буква
+  bool invalidWord = false; // Допустимое ли слово или нет
+  bool word = false; // Находимся ли мы в слове в данный момент
+  int prettyWord = 0; // Кол-во слов с заглавными
 
   while (str[i]) {
     char value = str[i];
 
-    if (value == ' ') { // Если строка начинается с пробела
-      invalidWord = false;
-      word = false;
-    } else if (value != ' ' && word == false) { // Если начало слова
+    if (value != ' ' && word == false) { // Если начало слова
       word = true;
-      if (isupper(value) && word) {
+      if (isupper(value) && value != ' ') {
         prettyWord++;
-      } else if (isalpha(value)) {
-        invalidWord = true;
-        prettyWord--;
       }
-    } else if ((value == ' ' && word == true)) {
+      else {
+        invalidWord = true;
+      }
+    }
+    else if (isalpha(value)) {
+      invalidWord = true;
+      prettyWord--;
+    }
+    else if ((value == ' ' && word == true)) {
       invalidWord = false;
       word = false;
     } // Если конец слова
 
     i++;
-  }
-
-  return prettyWord;
+  } 
 }
 
 unsigned int faStr3(const char  *   str) {
@@ -90,4 +91,5 @@ unsigned int faStr3(const char  *   str) {
     return sum / count;
   }
 }
+
 
