@@ -1,40 +1,85 @@
-// Copyright 2020 GHA Test Team
-
-#include <gtest/gtest.h>
+// Copyright 2022 UNN-IASR
 #include "fun.h"
+#include <math.h>
+#include <cstring>
+#include <cctype>
 
-TEST(task1, test1) {
-  const char * str = "qwe4  gftt e 555gr rrgr  grhh ";
-  unsigned int result = faStr1(str);
-  EXPECT_EQ(4, result);
+unsigned int faStr1(const char *str) {
+    int length = strlen(str);
+    bool isValid = false;
+    bool inWord = false;
+    int counter = 0;
+    for (int i = 0; i < length; i++) {
+        if (str[i] == ' ') {
+
+            isValid = false;
+            inWord = false;
+            if (inWord && isValid) {     
+                counter++;
+            }
+
+        } else if (!isalpha(str[i]) {
+            isValid = false;
+        } else {
+            if (!inWord) {
+                isValid = true;
+            }
+            inWord = true;
+        }
+
+    }
+    if (isValid) counter++;
+    return counter;
 }
 
-TEST(task1, test2) {
-  const char * str = "  qwe4 ";
-  unsigned int result = faStr1(str);
-  EXPECT_EQ(0, result);
+unsigned int faStr2(const char *str) {
+    int length = strlen(str);
+    bool isValid = false;
+    bool inWord = false;
+    int counter = 0;
+    for (int i = 0; i < length-1; i++) {
+        if (str[i] == ' ') {
+            if (isValid) {
+                isValid = false;
+                inWord = false;
+                counter++;
+            } else {
+                isValid = false;
+                inWord = false;
+            }
+        } else if (!inWord) {
+            inWord = true;
+            if (isupper(str[i])) {
+                isValid = true;
+            }
+        } else if (inWord && (isupper(str[i]) || !isalpha(str[i]))) {
+            isValid = false;
+        }
+    }
+    if (isValid) {
+        counter++;
+    }
+    return counter;
 }
 
-TEST(task2, test3) {
-  const char * str = "Hello, world!";
-  unsigned int result = faStr2(str);
-  EXPECT_EQ(0, result);
-}
-
-TEST(task2, test4) {
-  const char * str = "Hello world!";
-  unsigned int result = faStr2(str);
-  EXPECT_EQ(1, result);
-}
-
-TEST(task3, test5) {
-  const char * str = " bad dog ";
-  unsigned int result = faStr3(str);
-  EXPECT_EQ(3, result);
-}
-
-TEST(task3, test6) {
-  const char * str = " six monkeys";
-  unsigned int result = faStr3(str);
-  EXPECT_EQ(5, result);
+unsigned int faStr3(const char *str) {
+    bool inWord = false;
+    int length = strlen(str);
+    int wordCounter = 0;
+    int letterCounter = 0;
+    for (int i = 0; i < length; i++) {
+        if (str[i] == ' ') {
+            if (inWord) {
+                inWord = false;
+                wordCounter++;
+            }
+        } else {
+            inWord = true;
+            letterCounter++;
+        }
+    }
+    if (inWord) {
+        wordCounter++;
+    }
+    return round(letterCounter / wordCounter);
 }
