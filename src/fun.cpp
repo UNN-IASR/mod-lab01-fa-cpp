@@ -10,8 +10,8 @@
  * @return The number of words without digits in the string.
  */
 unsigned int faStr1(const char *str) {
-    unsigned int count = 0; // Count of words without digits
-    bool inWord = false; // Flag to indicate if we are inside a word
+    unsigned int count = 0;  // Count of words without digits
+    bool inWord = false;  // Flag to indicate if we are inside a word
 
     while (*str) {
         if (std::isalpha(*str)) {
@@ -19,8 +19,7 @@ unsigned int faStr1(const char *str) {
                 inWord = true;
                 ++count;
             }
-        }
-        else {
+        } else {
             inWord = false;
         }
         ++str;
@@ -37,9 +36,10 @@ unsigned int faStr1(const char *str) {
  * @return The number of words meeting the specified criteria.
  */
 unsigned int faStr2(const char *str) {
-    unsigned int count = 0; // Count of words meeting the criteria
-    bool inWord = false; // If we are inside a word
-    bool isLatinUppercase = false; // If the first character of the word is an uppercase Latin letter
+    unsigned int count = 0;  // Count of words meeting the criteria
+    bool inWord = false;  // If we are inside a word
+    // If the first character of the word is an uppercase Latin letter
+    bool isLatinUppercase = false;
 
     while (*str) {
         if (std::isalpha(*str)) {
@@ -47,18 +47,15 @@ unsigned int faStr2(const char *str) {
                 inWord = true;
                 if (std::isupper(*str)) {
                     isLatinUppercase = true;
-                }
-                else {
+                } else {
                     isLatinUppercase = false;
                 }
-            }
-            else {
+            } else {
                 if (!std::islower(*str)) {
                     isLatinUppercase = false;
                 }
             }
-        }
-        else {
+        } else {
             if (inWord && isLatinUppercase) {
                 ++count;
             }
@@ -80,9 +77,9 @@ unsigned int faStr2(const char *str) {
  * @return The average length of words in the string, rounded to the nearest integer.
  */
 unsigned int faStr3(const char *str) {
-    unsigned int wordCount = 0; // Count of words
-    unsigned int totalLength = 0; // Total length of words
-    bool inWord = false; // If we are inside a word
+    unsigned int wordCount = 0;  // Count of words
+    unsigned int totalLength = 0;  // Total length of words
+    bool inWord = false;  // If we are inside a word
 
     while (*str) {
         if (std::isalpha(*str)) {
@@ -91,8 +88,7 @@ unsigned int faStr3(const char *str) {
                 ++wordCount;
             }
             ++totalLength;
-        }
-        else {
+        } else {
             inWord = false;
         }
         ++str;
