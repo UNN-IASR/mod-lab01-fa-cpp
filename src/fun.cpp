@@ -2,7 +2,43 @@
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
-    return 0;
+    unsigned int count = 0;
+    string word = "";
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (isalnum(str[i])) {
+            word += str[i];
+        }
+        else if (!word.empty()) {
+            bool hasDigit = false;
+            for (char c : word) {
+                if (isdigit(c)) {
+                    hasDigit = true;
+                    break;
+                }
+            }
+            if (!hasDigit) {
+                count++;
+            }
+            word = "";
+        }
+    }
+
+
+    if (!word.empty()) {
+        bool hasDigit = false;
+        for (char c : word) {
+            if (isdigit(c)) {
+                hasDigit = true;
+                break;
+            }
+        }
+        if (!hasDigit) {
+            count++;
+        }
+    }
+
+    return count;
 }
 
 unsigned int faStr2(const char *str) {
