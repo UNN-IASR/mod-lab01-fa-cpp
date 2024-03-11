@@ -12,7 +12,7 @@ unsigned int faStr1(const char* str) {
             inWord = false;
             num = false;
         }
-        if (inWord == true && num == false && (str[i] >= '0' && str[i] <= '9')) {
+        if (inWord==true && num==false && str[i]>='0' && str[i]<='9') {
             count--;
             num = true;
         }
@@ -35,7 +35,7 @@ unsigned int faStr2(const char* str) {
             inWord = false;
             AA = false;
             no = false;
-		}
+        }
         if (i != 0 && str[i - 1] != ' ') {
             if (inWord && !no && (!AA || str[i] < 'a' || str[i] > 'z')) {
                 count--;
