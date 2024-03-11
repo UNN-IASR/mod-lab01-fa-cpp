@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <math.h>
 
 using namespace std;
 
@@ -96,5 +97,35 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    return 0;
+    unsigned int wordsCount = 0;
+    unsigned int allLetters = 0;
+    unsigned int letersInWordCount = 0;
+    bool isDigitInWord = false;
+    for (int i = 0; str[i] != '\0'; i++) {
+
+        if (isalnum(str[i])) {
+            letersInWordCount++;
+            if (isdigit(str[i])) {
+                isDigitInWord = true;
+            }
+        }
+
+        if (isspace(str[i]) && letersInWordCount > 0) {
+            if (isDigitInWord && allLetters > 0) {
+                allLetters -= letersInWordCount;
+            }
+            else if (!isDigitInWord) {
+                allLetters += letersInWordCount;
+                wordsCount++;
+            }
+            isDigitInWord = false;
+            letersInWordCount = 0;
+
+
+        }
+
+
+    }
+
+    return round((double)allLetters/(double)wordsCount);
 }
