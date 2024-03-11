@@ -1,5 +1,10 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
 
 unsigned int faStr1(const char *str) {
     unsigned int count = 0;
