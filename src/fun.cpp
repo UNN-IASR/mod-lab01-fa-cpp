@@ -40,6 +40,14 @@ unsigned int faStr2(const char *str) {
             i++;
             continue;
         }
+        if (str[i] != ' ' && inWord == false
+        && (isalpha(str[i]) == false
+        || isupper(str[i]) == false)) {
+            inWord = true;
+            isBadWord = true;
+            i++;
+            continue;
+        }
         if (str[i] != ' ' && inWord == true
         && isBadWord == false
         && (isalpha(str[i]) == false
@@ -80,4 +88,3 @@ unsigned int faStr3(const char *str) {
     }
     return round(count_char*1.0/count_word);
 }
-
