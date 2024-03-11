@@ -12,9 +12,11 @@ unsigned int faStr1(const char* str) {
             inWord = false;
             num = false;
         }
-        if (inWord==true && num==false && str[i]>='0' && str[i]<='9') {
-            count--;
-            num = true;
+        if (inWord == true && num == false) {
+            if (str[i]> == '0' && str[i] <= '9') {
+                count--;
+                num = true;
+            }
         }
         i++;
     }
