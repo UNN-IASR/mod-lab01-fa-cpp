@@ -1,4 +1,3 @@
-// Copyright 2022 UNN-IASR
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
@@ -27,35 +26,32 @@ unsigned int faStr1(const char *str) {
 
 unsigned int faStr2(const char *str) {
     bool inWord = false;
-    bool isNotFirst = false;
-    bool isBad = false;
+    bool isBadWord = false;
     int count_word = 0;
     int i = 0;
     while (str[i]) {
         if (str[i] != ' ' && inWord == false
-            && isalpha(str[i]) == true
-            && isupper(str[i]) == true) {
-            isNotFirst = true;
+        && isalpha(str[i]) == true
+        && isupper(str[i]) == true) {
             inWord = true;
             count_word++;
-        } else if (inWord == true
-            && isNotFirst == true
-            && str[i] != ' '
-            && isBad == false
-            && (isalpha(str[i]) == false
-            || islower(str[i]) == false)) {
-            isBad = true;
-            count_word--;
+            i++;
+            continue;
         }
-        if (str[i] != ' ' && inWord == false && isalpha(str[i]) == false) {
-            isNotFirst = true;
-            inWord = true;
-            isBad = true;
+        if (str[i] != ' ' && inWord == true
+        && isBadWord == false
+        && (isalpha(str[i]) == false
+        || islower(str[i]) == false)) {
+            isBadWord = true;
+            count_word--;
+            i++;
+            continue;
         }
         if (str[i] == ' ' && inWord == true) {
             inWord = false;
-            isNotFirst = false;
-            isBad = false;
+            isBadWord = false;
+            i++;
+            continue;
         }
         i++;
     }
@@ -82,5 +78,4 @@ unsigned int faStr3(const char *str) {
     }
     return round(count_char*1.0/count_word);
 }
-
 
