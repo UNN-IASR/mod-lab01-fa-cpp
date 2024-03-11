@@ -13,7 +13,7 @@ unsigned int faStr1(const char* str) {
             num = false;
         }
         if (inWord == true && num == false) {
-            if (str[i]> == '0' && str[i] <= '9') {
+            if (str[i] >= '0' && str[i] <= '9') {
                 count--;
                 num = true;
             }
