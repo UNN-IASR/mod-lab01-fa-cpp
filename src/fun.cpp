@@ -126,6 +126,9 @@ unsigned int faStr3(const char *str) {
 
 
     }
-
+    if (!isDigitInWord) {
+        allLetters += letersInWordCount;
+        wordsCount++;
+    }
     return round((double)allLetters/(double)wordsCount);
 }
