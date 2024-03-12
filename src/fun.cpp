@@ -1,21 +1,17 @@
 // Copyright 2022 UNN-IASR
-#include "fun.h"
-#include <iostream>
+#include <math.h>
 #include <string>
 #include <cctype>
-#include <math.h>
-
-using namespace std;
+#include "fun.h"
 
 unsigned int faStr1(const char *str) {
     unsigned int count = 0;
-    string word = "";
+    std::string word = "";
 
     for (int i = 0; str[i] != '\0'; i++) {
         if (isalnum(str[i])) {
             word += str[i];
-        }
-        else if (!word.empty()) {
+        } else if (!word.empty()) {
             bool hasDigit = false;
             for (char c : word) {
                 if (isdigit(c)) {
@@ -29,8 +25,6 @@ unsigned int faStr1(const char *str) {
             word = "";
         }
     }
-
-
     if (!word.empty()) {
         bool hasDigit = false;
         for (char c : word) {
@@ -43,7 +37,6 @@ unsigned int faStr1(const char *str) {
             count++;
         }
     }
-
     return count;
 }
 
@@ -57,10 +50,7 @@ unsigned int faStr2(const char *str) {
         if (isupper(str[i])) {
             inWord = true;
             UpperWordMark = i;
-        }
-
-
-        else if (inWord && !islower(str[i]) && !isspace(str[i])) {
+        } else if (inWord && !islower(str[i]) && !isspace(str[i])) {
             for (int j = UpperWordMark; j <= i; j++) {
                 if (!isalpha(str[j])) {
                     inWord = false;
@@ -69,11 +59,9 @@ unsigned int faStr2(const char *str) {
             if (inWord) {
                 count++;
             }
- 
-            inWord = false;
-        }
 
-        else if (inWord && !islower(str[i]) && isspace(str[i])) {
+            inWord = false;
+        } else if (inWord && !islower(str[i]) && isspace(str[i])) {
             for (int j = UpperWordMark; j < i; j++) {
                 if (!isalpha(str[j])) {
                     inWord = false;
@@ -84,15 +72,10 @@ unsigned int faStr2(const char *str) {
             }
 
             inWord = false;
-        }
-
-        else if (inWord && islower(str[i])) {
+        } else if (inWord && islower(str[i])) {
             continue;
         }
-
     }
-
-
     return count;
 }
 
@@ -102,7 +85,6 @@ unsigned int faStr3(const char *str) {
     unsigned int letersInWordCount = 0;
     bool isDigitInWord = false;
     for (int i = 0; str[i] != '\0'; i++) {
-
         if (isalnum(str[i])) {
             letersInWordCount++;
             if (isdigit(str[i])) {
@@ -113,22 +95,18 @@ unsigned int faStr3(const char *str) {
         if (isspace(str[i]) && letersInWordCount > 0) {
             if (isDigitInWord && allLetters > 0) {
                 allLetters -= letersInWordCount;
-            }
-            else if (!isDigitInWord) {
+            } else if (!isDigitInWord) {
                 allLetters += letersInWordCount;
                 wordsCount++;
             }
             isDigitInWord = false;
             letersInWordCount = 0;
-
-
         }
-
-
     }
-    if (!isDigitInWord) {
+    if (!isDigitInWord && letersInWordCount > 0) {
         allLetters += letersInWordCount;
         wordsCount++;
     }
-    return round((double)allLetters/(double)wordsCount);
+    return round(static_cast<double>(allLetters)
+        /static_cast<double>(wordsCount));
 }
