@@ -37,23 +37,20 @@ unsigned int faStr2(const char *str) {
         && isupper(str[i]) != 0) {
             inWord = true;
             count_word++;
-        } else
-        if (str[i] != ' ' && inWord == false
-        && (isalpha(str[i]) == 0
-        || isupper(str[i]) == 0)) {
-            inWord = true;
-            isBadWord = true;
-        } else
-        if (str[i] != ' ' && inWord == true
-        && isBadWord == false
-        && (isalpha(str[i]) == 0
-        || islower(str[i]) == 0)) {
-            isBadWord = true;
-            count_word--;
-        } else
-        if (str[i] == ' ' && inWord == true) {
-            inWord = false;
-            isBadWord = false;
+        } else if (str[i] != ' ' && inWord == false
+                && (isalpha(str[i]) == 0
+                || isupper(str[i]) == 0)) {
+                inWord = true;
+                isBadWord = true;
+        } else if (str[i] != ' ' && inWord == true
+                && isBadWord == false
+                && (isalpha(str[i]) == 0
+                || islower(str[i]) == 0)) {
+                    isBadWord = true;
+                    count_word--;
+        } else if (str[i] == ' ' && inWord == true) {
+                    inWord = false;
+                    isBadWord = false;
         }
         i++;
     }
