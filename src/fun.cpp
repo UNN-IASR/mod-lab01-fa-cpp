@@ -37,31 +37,23 @@ unsigned int faStr2(const char *str) {
         && isupper(str[i]) == true) {
             inWord = true;
             count_word++;
-            i++;
-            continue;
-        }
+        } else 
         if (str[i] != ' ' && inWord == false
         && (isalpha(str[i]) == false
         || isupper(str[i]) == false)) {
             inWord = true;
             isBadWord = true;
-            i++;
-            continue;
-        }
+        } else
         if (str[i] != ' ' && inWord == true
         && isBadWord == false
         && (isalpha(str[i]) == false
         || islower(str[i]) == false)) {
             isBadWord = true;
             count_word--;
-            i++;
-            continue;
-        }
+        } else
         if (str[i] == ' ' && inWord == true) {
             inWord = false;
             isBadWord = false;
-            i++;
-            continue;
         }
         i++;
     }
@@ -86,5 +78,9 @@ unsigned int faStr3(const char *str) {
         }
         i++;
     }
-    return round(count_char*1.0/count_word);
+    if (count_word != 0) {
+        return round(count_char*1.0/count_word);
+    } else {
+        return 0;
+    }
 }
