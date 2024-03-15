@@ -12,7 +12,7 @@ unsigned int faStr1(const char *str) {
             inWord = true;
             count_word++;
         }
-        if (isdigit(str[i]) == true && inWord == true
+        if (isdigit(str[i]) != 0 && inWord == true
                             && isDigitInWord == false) {
             isDigitInWord = true;
             count_word--;
@@ -33,21 +33,21 @@ unsigned int faStr2(const char *str) {
     int i = 0;
     while (str[i]) {
         if (str[i] != ' ' && inWord == false
-        && isalpha(str[i]) == true
-        && isupper(str[i]) == true) {
+        && isalpha(str[i]) != 0
+        && isupper(str[i]) != 0) {
             inWord = true;
             count_word++;
-        } else 
+        } else
         if (str[i] != ' ' && inWord == false
-        && (isalpha(str[i]) == false
-        || isupper(str[i]) == false)) {
+        && (isalpha(str[i]) == 0
+        || isupper(str[i]) == 0)) {
             inWord = true;
             isBadWord = true;
         } else
         if (str[i] != ' ' && inWord == true
         && isBadWord == false
-        && (isalpha(str[i]) == false
-        || islower(str[i]) == false)) {
+        && (isalpha(str[i]) == 0
+        || islower(str[i]) == 0)) {
             isBadWord = true;
             count_word--;
         } else
