@@ -1,12 +1,13 @@
+// Copyright 2022 UNN-IASR
 #include "fun.h"
 unsigned int faStr1(const char* str) {
-	if (str == ""){
+    if (str == ""){
 		return 0;
 	}
 	bool startworld = false;
 	int count_worlds = 0;
 	for (const char* p = str; *p; p++){
-		if (*p != ' '){
+        if (*p != ' '){
 			startworld = true;
 			if ('0' <= *p && *p <= '9'){
 				startworld = false;
@@ -22,16 +23,16 @@ unsigned int faStr1(const char* str) {
 			}
 		}
 
-	}if (startworld){
+	}
+	if (startworld){
 		startworld = false;
 		count_worlds++;
 	}
 	return count_worlds;
-
 }
 
 
-unsigned int faStr2(const char* str) {
+unsigned int faStr2(const char* str){
 	if (str == ""){
 		return 0;
 	}
@@ -42,13 +43,15 @@ unsigned int faStr2(const char* str) {
 			if (*p >= 'A' && *p <= 'Z'){
 				if (!startworld){
 					startworld = true;
-				}else {
+				}
+				else {
 					startworld = false;
 					while (*p != ' ' && *p != 0){
 						p++;
 					}
 				}
-			}else{
+			}
+			else{
 				if (*p >= 'a' && *p <= 'z') {
 					if (!startworld){
 						while (*p != ' ' && *p != 0){
@@ -56,7 +59,8 @@ unsigned int faStr2(const char* str) {
 						}
 					}
 
-				}else {
+				}
+				else {
 					startworld = false;
 				}
 
@@ -64,20 +68,21 @@ unsigned int faStr2(const char* str) {
 
 			if ('0' <= *p && *p <= '9'){
 				startworld = false;
-				while (*p != ' ' && *p != 0)
-				{
+				while (*p != ' ' && *p != 0){
 					p++;
 				}
 			}
 
-		}else{
+		}
+		else{
 			if (startworld){
 				startworld = false;
 				count_worlds++;
 			}
 		}
 
-	}if (startworld){
+	}
+	if (startworld){
 		startworld = false;
 		count_worlds++;
 	}
@@ -97,20 +102,21 @@ unsigned int faStr3(const char* str) {
 			countSymbol++;
 			if ('0' <= *p && *p <= '9'){
 				startworld = false;
-				while (*p != ' ' && *p != 0)
-				{
+				while (*p != ' ' && *p != 0){
 					p++;
 				}
 			}
 
-		}else{
+		}
+		else{
 			if (startworld){
 				startworld = false;
 				count_worlds++;
 			}
 		}
 
-	}if (startworld){
+	}
+	if (startworld){
 		startworld = false;
 		count_worlds++;
 	}
