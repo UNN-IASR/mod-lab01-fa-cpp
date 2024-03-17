@@ -40,12 +40,12 @@ unsigned int faStr2(const char* str) {
     while (str[i] != '\0') {
         if (str[i] != ' ' && InWord == false) {
             InWord = true;
-            if (islower(str[i]) || isdigit(str[i])) {
+            if (islower(str[i]) || isdigit(str[i]) || ispunct(str[i])) {
                 Fail = true;
             }
             counter++;
         } else if (str[i] != ' ' && InWord == true) {
-            if (isupper(str[i]) || isdigit(str[i])) {
+            if (isupper(str[i]) || isdigit(str[i]) || ispunct(str[i])) {
                 Fail = true;
             }
         } else if (str[i] == ' ' && InWord == true) {
@@ -77,6 +77,7 @@ unsigned int faStr3(const char* str) {
             len++;
         } else if (str[i] == ' ' && InWord == true) {
             counter++;
+            InWord = false;
         } else if (str[i] != ' ' && InWord == true) {
             len++;
         }
