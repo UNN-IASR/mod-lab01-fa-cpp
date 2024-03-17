@@ -23,7 +23,6 @@ unsigned int faStr1(const char *str) {
 		}
 		i++;
 	}
-	
 	std::cout << count<<std::endl;
 	return count;
 }
