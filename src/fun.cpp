@@ -2,9 +2,9 @@
 #include "fun.h"
 unsigned int faStr1(const char* str) {
     if (str == "") {
-	    return 0;
-	}
-	bool startworld = false;
+         return 0;
+    }
+    bool startworld = false;
 	int count_worlds = 0;
 	for (const char* p = str; *p; p++) {
         if (*p != ' '){
