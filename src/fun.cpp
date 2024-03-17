@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 #include <ctype.h>
+#include <cmath>
 #include <iostream>
 unsigned int faStr1(const char *str) {
 	bool inWord = false;
