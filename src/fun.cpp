@@ -2,18 +2,16 @@
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
-    bool flag1 = false, flag2 = false; 
+   bool flag1 = false, flag2 = false;
     int count = 0, i = 0;
-    while (str[i]) { 
+    while (str[i]) {
         if (str[i] != ' ' && flag1 == false) {
             flag1 = true;
             count++;
-        }
-        else if (isdigit(str[i]) && flag1 == true && flag2 == false) {
+        } else if (isdigit(str[i]) && flag1 == true && flag2 == false) {
             flag2 = true;
             count--;
-        }
-        else if (str[i] == ' ' && flag1 == true) {
+        } else if (str[i] == ' ' && flag1 == true) {
             flag1 = false;
             flag2 = false;
         }
@@ -30,12 +28,10 @@ unsigned int faStr2(const char *str) {
         if (!flag && str[i] != ' ' && str[i] >= 65 && str[i] <= 90) {
             flag = true;
             num = 1;
-        }
-        else if (flag && str[i] == ' ') {
+        } else if (flag && str[i] == ' ') {
             flag = false;
             count += num;
-        }
-        else if (str[i] < 97 || str[i] > 122) {
+        } else if (str[i] < 97 || str[i] > 122) {
             num = 0;
         }
         i++;
@@ -52,12 +48,9 @@ unsigned int faStr3(const char *str) {
         if (!flag && str[i] != ' ') {
             flag = true;
             count++;
-        }
-        else if (flag && str[i] == ' ') {
+        } else if (flag && str[i] == ' ') {
             flag = false;
-
-        }
-        if (flag && str[i] != ' ') {
+        }if (flag && str[i] != ' ') {
             sum++;
         }
         i++;
