@@ -1,5 +1,6 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
+#include <cmath>
 
 unsigned int faStr1(const char *str) {
    bool flag1 = false, flag2 = false;
