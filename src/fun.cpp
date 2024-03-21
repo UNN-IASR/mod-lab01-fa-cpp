@@ -14,7 +14,7 @@ unsigned int faStr1(const char *str) {
             inWord = true;
         }
 
-        if (43 <= static_cast<int>(*(str + i)) <= 58) {
+        if ('0' <= *(str + i) <= '9') {
             withNumber = true;
         }
 
