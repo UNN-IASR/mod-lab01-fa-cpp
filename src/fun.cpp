@@ -1,114 +1,79 @@
 // Copyright 2022 UNN-IASR
+#include <ctype.h>
+#include <math.h>
 #include "fun.h"
-unsigned int faStr1(const char* str) {
-  if (str == "") {
-     return 0;
-  }
-  bool startworld = false;
-  int count_worlds = 0;
-  for (const char* p = str; *p; p++) {
-    if (*p != ' ') {
-      startworld = true;
-      if ('0' <= *p && *p <= '9') {
-         startworld = false;
-         while (*p != ' ') {
-           p++;
-         }
-      }
-    } else {
-      if (startworld) {
-        startworld = false;
-        count_worlds++;
-      }
-    }
-  } if (startworld) {
-      startworld = false;
-      count_worlds++;
-  }
-  return count_worlds;
-}
 
+unsigned int faStr1(const char* str) {
+    int i = 0;
+    bool inWord = false;
+    bool Have_Numbers = false;
+    int Count_Words = 0;
+    while (str[i] != '\0') {
+        if (isdigit(str[i]) && Have_Numbers == false) {
+            Have_Numbers = true;
+        }
+        if (str[i] != ' ' && inWord == false) {
+            inWord = true;
+            Count_Words++;
+        } else if (str[i] == ' ' && inWord == true) {
+            if (Have_Numbers == true) {
+                Have_Numbers = false;
+                Count_Words--;
+            }
+            inWord = false;
+        }
+        i++;
+    }
+    if (inWord == true && Have_Numbers == true) {
+        Count_Words--;
+        Have_Numbers = false;
+    }
+    return Count_Words;
+}
 
 unsigned int faStr2(const char* str) {
-	if (str == "") {
-		return 0;
-	}
-	bool startworld = false;
-	int count_worlds = 0;
-	for (const char* p = str; *p; p++) {
-		if (*p != ' ') {
-			if (*p >= 'A' && *p <= 'Z') {
-				if (!startworld){
-					startworld = true;
-				} else {
-					startworld = false;
-					while (*p != ' ' && *p != 0) {
-						p++;
-					}
-				}
-			} else {
-				if (*p >= 'a' && *p <= 'z') {
-					if (!startworld){
-						while (*p != ' ' && *p != 0) {
-							p++;
-						}
-					}
-
-				}
-				else {
-					startworld = false;
-				}
-
-			} if ('0' <= *p && *p <= '9') {
-				startworld = false;
-				while (*p != ' ' && *p != 0) {
-					p++;
-				}
-			}
-
-		} else { 
-			if (startworld) {
-				startworld = false;
-				count_worlds++;
-			}
-		}
-
-	} if (startworld) {
-		startworld = false;
-		count_worlds++;
-	}
-	return count_worlds;
+    int Count_Words = 0;
+    bool inW = false;
+    int i = 0;
+    bool NoL = false;
+    while (str[i] != '\0') {
+        if (str[i] != ' ' && inW == false && isupper(str[i])) {
+            inW = true;
+            Count_Words++;
+        } else if (str[i] != ' ' && inW == true && !islower(str[i])) {
+            if (NoL == false) {
+                NoL = true;
+            }
+        } else if (str[i] == ' ' && inW == true) {
+            if (NoL == true) {
+                Count_Words--;
+                NoL = false;
+            }
+            inW = false;
+        }
+        i++;
+    }
+    return Count_Words;
 }
 
-
 unsigned int faStr3(const char* str) {
-	int count_worlds = 0, countSymbol = 0;
-	if (str == "") {
-		return 0;
-	}
-	bool startworld = false;
-	for (const char* p = str; *p; p++) {
-		if (*p != ' ') {
-			startworld = true;
-			countSymbol++;
-			if ('0' <= *p && *p <= '9') {
-				startworld = false;
-				while (*p != ' ' && *p != 0) {
-					p++;
-				}
-			}
-
-		} else {
-			if (startworld) {
-				startworld = false;
-				count_worlds++;
-			}
-		}
-
-	} if (startworld) {
-	    startworld = false;
-		count_worlds++;
-	}
-	int mediumLength = countSymbol / count_worlds;
-	return mediumLength;
+    bool inWord = false;
+    double Count_Length = 0;
+    double Count_Words = 0;
+    int i = 0;
+    while (str[i] != '\0') {
+        if (str[i] != ' ' && inWord == false) {
+            inWord = true;
+            Count_Words++;
+            Count_Length++;
+        } else if (str[i] ==' ' && inWord == true) {
+            inWord = false;
+        } else if (str[i] != ' ' && inWord == true) {
+            Count_Length++;
+            inWord = true;
+        }
+        i++;
+    }
+    int Average_Value = round(Count_Length / Count_Words);
+    return Average_Value;
 }
