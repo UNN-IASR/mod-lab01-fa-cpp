@@ -78,6 +78,6 @@ unsigned int faStr3(const char* str) {
 
     if (words == 0)
         return 0;
-
+    
     return (total + words / 2) / words;
 }
