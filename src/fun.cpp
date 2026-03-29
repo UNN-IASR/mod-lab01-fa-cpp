@@ -42,8 +42,7 @@ unsigned int faStr2(const char* str) {
             if (pos == 0) {
                 if (!(*p >= 'A' && *p <= 'Z'))
                     val = false;
-            }
-            else {
+            } else {
                 if (!(*p >= 'a' && *p <= 'z'))
                     val = false;
             }
@@ -78,6 +77,5 @@ unsigned int faStr3(const char* str) {
 
     if (words == 0)
         return 0;
-    
     return (total + words / 2) / words;
 }
