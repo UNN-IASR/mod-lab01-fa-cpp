@@ -13,7 +13,8 @@ unsigned int faStr1(const char *str) {
         } else if (*str == ' ' && InWord == true) {
             InWord = false;
             IsNumber = false;
-        } else if ((*str >= '0' && *str <= '9') && InWord == true && IsNumber == false) {
+        } else if ((*str >= '0' && *str <= '9') && InWord == true &&
+           IsNumber == false) {
             IsNumber = true;
             Count--;
         }
@@ -77,7 +78,7 @@ unsigned int faStr3(const char *str) {
     }
 
     if (WordCount > 0) {
-        double Avg = (double)LettersCount / WordCount;
+        double Avg = static_cast<double>(LettersCount) / WordCount;
         LettersCount = (unsigned int)(Avg + 0.5);
     } else {
         LettersCount = 0;
