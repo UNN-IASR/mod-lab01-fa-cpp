@@ -1,8 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include <iostream>
 #include "fun.h"
-int main()
-{
+int main() {
     const char* s1 = "qweqweq 123 hello test45 world";
     const char* s2 = "Hello World Abc aBc X Cat";
     const char* s3 = "one two three for";
