@@ -12,13 +12,11 @@ unsigned int faStr1(const char *str) {
             if (*str >= '0' && *str <= '9') {
                 number = true;
             }
-        }
-        else if (*str != ' ' && inWord == true) {
+        } else if (*str != ' ' && inWord == true) {
             if (*str >= '0' && *str <= '9') {
                 number = true;
-            } 
-        }
-        else if (*str == ' ' && inWord == true) {
+            }
+        } else if (*str == ' ' && inWord == true) {
             if (number == false) {
                 count++;
             }
@@ -43,14 +41,12 @@ unsigned int faStr2(const char *str) {
             letters = true;
             if (*str >= 'A' && *str <= 'Z') {
                 withCapital = true;
-            }   
-        }
-        else if (*str != ' ' && inWord == true) {
+            }
+        } else if (*str != ' ' && inWord == true) {
             if (!(*str >= 'a' && *str <= 'z')) {
                 letters = false;
             }
-        }
-        else if (*str == ' ' && inWord == true) {
+        } else if (*str == ' ' && inWord == true) {
             if (letters == true && withCapital == true) {
                 count++;
             }
@@ -75,11 +71,9 @@ unsigned int faStr3(const char *str) {
             inWord = true;
             count_word++;
             count_letters++;
-        }
-        else if (*str != ' ' && inWord == true) {
-            count_letters++; 
-        }
-        else if (*str == ' ' && inWord == true) {
+        } else if (*str != ' ' && inWord == true) {
+            count_letters++;
+        } else if (*str == ' ' && inWord == true) {
             inWord = false;
         }
         str++;
