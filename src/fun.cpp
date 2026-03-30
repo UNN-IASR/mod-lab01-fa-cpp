@@ -1,31 +1,36 @@
 // Copyright 2022 UNN-IASR
+#include <cmath>
+#include <cctype>
 #include "fun.h"
 
 unsigned int faStr1(const char* str) {
     if (str == nullptr || str[0] == '\0')
         return 0;
 
-    int l = 0;
-    int count = 0;
+    int i = 0;
+    unsigned int count = 0;
 
-    while (str[l] != '\0') {
-        if (str[l] == ' ') {
-            l++;
+    while (str[i] != '\0') {
+        while (str[i] != '\0' && !std::isalnum(static_cast<unsigned char>(str[i]))) {
+            i++;
         }
-        else {
-            bool hasDigit = false;
 
-            while (str[l] != ' ' && str[l] != '\0') {
-                if (str[l] >= '0' && str[l] <= '9') {
-                    hasDigit = true;
-                }
-                l++;
-            }
+        if (str[i] == '\0')
+            break;
 
-            if (!hasDigit) {
-                count++;
-            }
+        bool has_digit = false;
+        bool has_letter = false;
+
+        while (str[i] != '\0' && std::isalnum(static_cast<unsigned char>(str[i]))) {
+            if (std::isdigit(static_cast<unsigned char>(str[i])))
+                has_digit = true;
+            if (std::isalpha(static_cast<unsigned char>(str[i])))
+                has_letter = true;
+            i++;
         }
+
+        if (has_letter && !has_digit)
+            count++;
     }
 
     return count;
@@ -35,36 +40,36 @@ unsigned int faStr2(const char* str) {
     if (str == nullptr || str[0] == '\0')
         return 0;
 
-    int l = 0;
-    int count = 0;
+    int i = 0;
+    unsigned int count = 0;
 
-    while (str[l] != '\0') {
-        if (str[l] == ' ') {
-            l++;
+    while (str[i] != '\0') {
+        while (str[i] != '\0' && !std::isalpha(static_cast<unsigned char>(str[i]))) {
+            i++;
         }
-        else {
-            bool itsokay = true;
 
-            if (!(str[l] >= 'A' && str[l] <= 'Z')) {
-                while (str[l] != ' ' && str[l] != '\0') {
-                    l++;
-                }
-                continue;
+        if (str[i] == '\0')
+            break;
+
+        bool ok = true;
+
+        if (!std::isupper(static_cast<unsigned char>(str[i]))) {
+            while (str[i] != '\0' && std::isalpha(static_cast<unsigned char>(str[i]))) {
+                i++;
             }
-
-            l++;
-
-            while (str[l] != ' ' && str[l] != '\0') {
-                if (!(str[l] >= 'a' && str[l] <= 'z')) {
-                    itsokay = false;
-                }
-                l++;
-            }
-
-            if (itsokay) {
-                count++;
-            }
+            continue;
         }
+
+        i++;
+
+        while (str[i] != '\0' && std::isalpha(static_cast<unsigned char>(str[i]))) {
+            if (!std::islower(static_cast<unsigned char>(str[i])))
+                ok = false;
+            i++;
+        }
+
+        if (ok)
+            count++;
     }
 
     return count;
@@ -74,28 +79,34 @@ unsigned int faStr3(const char* str) {
     if (str == nullptr || str[0] == '\0')
         return 0;
 
-    int l = 0;
-    int countsymbol = 0;
-    int countword = 0;
-    bool inWord = false;
+    int i = 0;
+    int letters_count = 0;
+    int words_count = 0;
 
-    while (str[l] != '\0') {
-        if (str[l] != ' ') {
-            countsymbol++;
-            if (!inWord) {
-                inWord = true;
-                countword++;
-            }
+    while (str[i] != '\0') {
+        while (str[i] != '\0' && !std::isalpha(static_cast<unsigned char>(str[i]))) {
+            i++;
         }
-        else {
-            inWord = false;
+
+        if (str[i] == '\0')
+            break;
+
+        int current_len = 0;
+
+        while (str[i] != '\0' && std::isalpha(static_cast<unsigned char>(str[i]))) {
+            current_len++;
+            i++;
         }
-        l++;
+
+        if (current_len > 0) {
+            letters_count += current_len;
+            words_count++;
+        }
     }
 
-    if (countword == 0)
+    if (words_count == 0)
         return 0;
 
-    unsigned int rez = std::round((double)countsymbol / countword);
-    return rez;
+    return static_cast<unsigned int>(
+        std::round(static_cast<double>(letters_count) / words_count));
 }
