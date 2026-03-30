@@ -3,7 +3,7 @@
 #include "fun.h"
 
 int main() {
-    const char* str = "Hello world123 tagir slovo sharipov9423423";
+    const char* str = "Hello world123 raz dva slovo vs39292339";
     std::cout << faStr1(str) << "\n";
     std::cout << faStr2(str) << "\n";
     std::cout << faStr3(str) << "\n";
