@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-IASR
 #include "fun.h"
 #include <cctype>
 
@@ -13,19 +14,28 @@ unsigned int faStr1(const char *str) {
 
         switch (state) {
         case S_SPACE:
-            if (!sp)
+            if (!sp) {
                 state = dig ? S_WORD_DIRTY : S_WORD_CLEAN;
+            }
             break;
         case S_WORD_CLEAN:
-            if (sp) { count++; state = S_SPACE; }
-            else if (dig) { state = S_WORD_DIRTY; }
+            if (sp) {
+                count++;
+                state = S_SPACE;
+            } else if (dig) {
+                state = S_WORD_DIRTY;
+            }
             break;
         case S_WORD_DIRTY:
-            if (sp) state = S_SPACE;
+            if (sp) {
+                state = S_SPACE;
+            }
             break;
         }
     }
-    if (state == S_WORD_CLEAN) count++;
+    if (state == S_WORD_CLEAN) {
+        count++;
+    }
     return count;
 }
 
@@ -42,19 +52,28 @@ unsigned int faStr2(const char *str) {
 
         switch (state) {
         case S_SPACE:
-            if (!sp)
+            if (!sp) {
                 state = upper ? S_WORD_GOOD : S_WORD_BAD;
+            }
             break;
         case S_WORD_GOOD:
-            if (sp) { count++; state = S_SPACE; }
-            else if (!lower) { state = S_WORD_BAD; }
+            if (sp) {
+                count++;
+                state = S_SPACE;
+            } else if (!lower) {
+                state = S_WORD_BAD;
+            }
             break;
         case S_WORD_BAD:
-            if (sp) state = S_SPACE;
+            if (sp) {
+                state = S_SPACE;
+            }
             break;
         }
     }
-    if (state == S_WORD_GOOD) count++;
+    if (state == S_WORD_GOOD) {
+        count++;
+    }
     return count;
 }
 
@@ -71,7 +90,10 @@ unsigned int faStr3(const char *str) {
 
         switch (state) {
         case S_SPACE:
-            if (!sp) { curLen = 1; state = S_WORD; }
+            if (!sp) {
+                curLen = 1;
+                state = S_WORD;
+            }
             break;
         case S_WORD:
             if (sp) {
@@ -85,8 +107,12 @@ unsigned int faStr3(const char *str) {
             break;
         }
     }
-    if (state == S_WORD) { wordCount++; totalChars += curLen; }
-
-    if (wordCount == 0) return 0;
+    if (state == S_WORD) {
+        wordCount++;
+        totalChars += curLen;
+    }
+    if (wordCount == 0) {
+        return 0;
+    }
     return (totalChars + wordCount / 2) / wordCount;
 }
