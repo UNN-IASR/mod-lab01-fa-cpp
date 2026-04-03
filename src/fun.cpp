@@ -5,11 +5,11 @@
 
 unsigned int faStr1(const char *str) {
     if (!str) return 0;
-    
+
     unsigned int count = 0;
     bool inWord = false;
     bool hasDigit = false;
-    
+
     for (const char *p = str; *p != '\0'; ++p) {
         if (std::isspace(*p)) {
             if (inWord && !hasDigit) {
@@ -35,12 +35,12 @@ unsigned int faStr1(const char *str) {
 
 unsigned int faStr2(const char *str) {
     if (!str) return 0;
-    
+
     unsigned int count = 0;
     bool inWord = false;
     bool valid = true;
     bool firstChar = true;
-    
+
     for (const char *p = str; *p != '\0'; ++p) {
         if (std::isspace(*p)) {
             if (inWord && valid) {
@@ -55,7 +55,7 @@ unsigned int faStr2(const char *str) {
                 firstChar = true;
                 valid = true;
             }
-            
+
             if (firstChar) {
                 if (!(*p >= 'A' && *p <= 'Z')) {
                     valid = false;
@@ -76,12 +76,12 @@ unsigned int faStr2(const char *str) {
 
 unsigned int faStr3(const char *str) {
     if (!str) return 0;
-    
+
     unsigned int totalLength = 0;
     unsigned int wordCount = 0;
     bool inWord = false;
     unsigned int currentLength = 0;
-    
+
     for (const char *p = str; *p != '\0'; ++p) {
         if (std::isspace(*p)) {
             if (inWord) {
@@ -102,9 +102,9 @@ unsigned int faStr3(const char *str) {
         totalLength += currentLength;
         ++wordCount;
     }
-    
+
     if (wordCount == 0) return 0;
-    
+
     double average = static_cast<double>(totalLength) / wordCount;
     return static_cast<unsigned int>(std::round(average));
 }
