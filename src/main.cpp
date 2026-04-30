@@ -1,18 +1,13 @@
-﻿#include <iostream>
+// Copyright 2024 <Copyright Owner>
+#include <iostream>
 #include "fun.h"
-#include <windows.h>
 
-using namespace std;
-
-int main()
-{
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);   
+int main() {
     const char* str = "Hello world Test123 ABC def Ghi";
 
-    cout << "Без цифр: " << faStr1(str) << endl;
-    cout << "С заглавной: " << faStr2(str) << endl;
-    cout << "Средняя длина: " << faStr3(str) << endl;
+    std::cout << "Без цифр: " << faStr1(str) << std::endl;
+    std::cout << "С заглавной: " << faStr2(str) << std::endl;
+    std::cout << "Средняя длина: " << faStr3(str) << std::endl;
 
     return 0;
 }
