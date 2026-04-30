@@ -1,93 +1,111 @@
 #include "fun.h"
 #include <cctype>
+#include <cwctype>
 
 unsigned int faStr1(const char* str)
 {
+    if (str == nullptr) return 0;
+    
     unsigned int count = 0;
-
-    while (*str)
+    int i = 0;
+    
+    while (str[i] != '\0')
     {
         // пропускаем пробелы
-        while (*str && isspace(*str)) str++;
-
-        if (!*str) break;
-
+        while (str[i] != '\0' && isspace(str[i])) i++;
+        
+        if (str[i] == '\0') break;
+        
         bool hasDigit = false;
-
+        bool hasLetter = false;
+        
         // обрабатываем слово
-        while (*str && !isspace(*str))
+        while (str[i] != '\0' && !isspace(str[i]))
         {
-            if (isdigit(*str))
+            if (isdigit(str[i]))
                 hasDigit = true;
-            str++;
+            else if (isalpha(str[i]))
+                hasLetter = true;
+            i++;
         }
-
-        if (!hasDigit)
+        
+        // слово не содержит цифр И содержит хотя бы одну букву
+        if (!hasDigit && hasLetter)
             count++;
     }
-
+    
     return count;
 }
 
 unsigned int faStr2(const char* str)
 {
+    if (str == nullptr) return 0;
+    
     unsigned int count = 0;
-
-    while (*str)
+    int i = 0;
+    
+    while (str[i] != '\0')
     {
-        while (*str && isspace(*str)) str++;
-
-        if (!*str) break;
-
+        // пропускаем пробелы
+        while (str[i] != '\0' && isspace(str[i])) i++;
+        
+        if (str[i] == '\0') break;
+        
         bool valid = true;
-
-        // первая буква
-        if (!isupper(*str))
+        
+        // проверяем первую букву (должна быть заглавной латинской)
+        if (!isupper(str[i]) || !isalpha(str[i]))
             valid = false;
-
-        str++;
-
-        // остальные символы
-        while (*str && !isspace(*str))
+        
+        i++;
+        
+        // проверяем остальные символы (должны быть строчными латинскими)
+        while (str[i] != '\0' && !isspace(str[i]))
         {
-            if (!islower(*str))
+            if (!islower(str[i]) || !isalpha(str[i]))
                 valid = false;
-            str++;
+            i++;
         }
-
+        
         if (valid)
             count++;
     }
-
+    
     return count;
 }
 
 unsigned int faStr3(const char* str)
 {
+    if (str == nullptr) return 0;
+    
     unsigned int totalLength = 0;
     unsigned int wordCount = 0;
-
-    while (*str)
+    int i = 0;
+    
+    while (str[i] != '\0')
     {
-        while (*str && isspace(*str)) str++;
-
-        if (!*str) break;
-
+        // пропускаем пробелы
+        while (str[i] != '\0' && isspace(str[i])) i++;
+        
+        if (str[i] == '\0') break;
+        
         unsigned int length = 0;
-
-        while (*str && !isspace(*str))
+        
+        // считаем длину слова
+        while (str[i] != '\0' && !isspace(str[i]))
         {
             length++;
-            str++;
+            i++;
         }
-
+        
         totalLength += length;
         wordCount++;
     }
-
+    
     if (wordCount == 0)
         return 0;
-
-    // округление
-    return (totalLength + wordCount / 2) / wordCount;
+    
+    // математическое округление (0.5 вверх)
+    double average = static_cast<double>(totalLength) / wordCount;
+    return static_cast<unsigned int>(average + 0.5);
 }
