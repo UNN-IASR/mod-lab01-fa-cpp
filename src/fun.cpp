@@ -9,8 +9,8 @@ unsigned int faStr1(const char* str) {
     while (*str) {
         if (*str != ' ' && !inWord) {
             if (*str < 48 || *str > 57) wordCount++;
-			else isValidWord = false;
-			inWord = true;
+            else isValidWord = false;
+            inWord = true;
         } else if (*str == ' ' && inWord) {
             inWord = false;
             if (!isValidWord) isValidWord = true;
@@ -18,7 +18,7 @@ unsigned int faStr1(const char* str) {
             wordCount--;
             isValidWord = false;
         }
-        str++; 
+        str++;
     }
     return wordCount;
 }
