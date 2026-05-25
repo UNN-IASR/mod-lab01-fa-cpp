@@ -4,7 +4,7 @@
 
 int main() {
     const char* testMessage =
-    " GNEURSHK -3500 is The Thing  of Fut43ure  until the fds234 334h 4hh Est s4";
+    " GNEURSHK -3500 is The Thing  of Fut4ure  until the fds234 34h 4h Est s4";
     unsigned int result1 = faStr1(testMessage);
     unsigned int result2 = faStr2(testMessage);
     unsigned int result3 = faStr3(testMessage);
